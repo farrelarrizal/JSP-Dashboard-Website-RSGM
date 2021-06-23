@@ -5,7 +5,8 @@ if(act == null || act.trim().equals("")){
 	act = "default";
 }
 
-String isLogin = (String) session.getAttribute("is_login");
+// String isLogin = (String) session.getAttribute("is_login");
+String isLogin = "1";
 
 if(isLogin == null || !isLogin.equals("1")){
 	response.sendRedirect("index.jsp");
@@ -43,10 +44,25 @@ if(isLogin == null || !isLogin.equals("1")){
 					<a href="home.jsp" class="pure-menu-heading pure-menu-link"><img class="pure-img" width="100" src="img/logo.png"></a>
 					<ul class="pure-menu-list">
 						<li class="pure-menu-item">
-							<a href="?act=user" class="pure-menu-link">user</a>
+							<a href="?act=user" class="pure-menu-link">User</a>
 						</li>
 						<li class="pure-menu-item">
-							<a href="?act=pasien" class="pure-menu-link">pasien</a>
+							<a href="?act=pasien" class="pure-menu-link">Pasien</a>
+						</li>
+						<li class="pure-menu-item">
+							<a href="?act=admission" class="pure-menu-link">Admission</a>
+						</li>
+						<li class="pure-menu-item">
+							<a href="?act=apotek" class="pure-menu-link">Apotek</a>
+						</li>
+						<li class="pure-menu-item">
+							<a href="?act=rekam-medis" class="pure-menu-link">Rekam Medis</a>
+						</li>
+						<li class="pure-menu-item">
+							<a href="?act=rawat-inap" class="pure-menu-link">Rawat Inap</a>
+						</li>
+						<li class="pure-menu-item">
+							<a href="?act=kamar-operasi" class="pure-menu-link">Kamar Operasi</a>
 						</li>
 						<li class="pure-menu-item pure-menu-has-children pure-menu-allow-hover">
 							<a href="#" class="pure-menu-link">akun</a>
