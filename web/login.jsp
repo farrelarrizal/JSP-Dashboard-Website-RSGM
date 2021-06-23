@@ -80,8 +80,14 @@ if( act != null && act.equals("login")){
 				<center>
 				<h3>Selamat Datang!</h3>
 				<h4>Silahkan registrasi online sebelum datang ke rumah sakit!</h4>
-				<button class="button-success pure-button">Daftar Sekarang</button>
+				<form style="" class="pure-form " action="home.jsp" method="post">
+					<input type="hidden" name="act" value="regis" />
+						<div class="pure-u-2-5 ">
+							<input class="pure-button pure-button-primary" type="submit" value="Daftar Sekarang" />
+						</div>
+				</form>
 				</center>
+				<%-- <a href="?act=regis" class="button-success pure-button">Daftar Sekarang</a> --%>
 				<br>
 				<br>
 				<p> <center><small> bukan pasien? </small> </center></p>

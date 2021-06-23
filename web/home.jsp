@@ -111,6 +111,8 @@ if(isLogin == null || !isLogin.equals("1")){
 			<jsp:include page="WEB-INF/jsp/delete_user.jsp"/>
 			<% }else if(act.equals("delete-pasien")){ %>
 			<jsp:include page="WEB-INF/jsp/pasien/delete_pasien.jsp"/>
+			<% }else if(act.equals("regis")){ %>
+			<jsp:include page="WEB-INF/jsp/admission/regispre.jsp"/>
 			<% } %>
 			</div>
 		</div>
