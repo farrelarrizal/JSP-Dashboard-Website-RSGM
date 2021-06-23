@@ -80,7 +80,7 @@ if( act != null && act.equals("login")){
 				<center>
 				<h3>Selamat Datang!</h3>
 				<h4>Silahkan registrasi online sebelum datang ke rumah sakit!</h4>
-				<form style="" class="pure-form " action="home.jsp" method="post">
+				<form style="" class="pure-form " action="regispre.jsp" method="post">
 					<input type="hidden" name="act" value="regis" />
 						<div class="pure-u-2-5 ">
 							<input class="pure-button pure-button-primary" type="submit" value="Daftar Sekarang" />

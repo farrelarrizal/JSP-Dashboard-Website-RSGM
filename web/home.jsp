@@ -20,6 +20,8 @@ if(isLogin == null || !isLogin.equals("1")){
 		<meta name="viewport" content="width=device-width, initial-scale=1">
 		
 		<link rel="stylesheet" href="css/pure-min.css"/>
+		<link rel="stylesheet" href="css/style-card.css"/>
+		<link rel="stylesheet" href="css/style-grid.css"/>
 		<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 
 		<!-- Date Picker-->
@@ -91,6 +93,63 @@ if(isLogin == null || !isLogin.equals("1")){
 			<div class="pure-u-1" align="center">
 			<% if(act.equals("default")){ %>
 			<h3> Silakan memilih menu </h3>
+			<div class="o-flex-grid w-100">
+				<div class="box red o-flex-grid--item">
+					<img src="https://assets.codepen.io/2301174/icon-team-builder.svg" alt="">
+					<h2>Admission</h2>
+				</div>
+				<div class="box red o-flex-grid--item">
+					<img src="https://assets.codepen.io/2301174/icon-team-builder.svg" alt="">
+					<h2>Apotek</h2>
+				</div>
+				<div class="box red o-flex-grid--item">
+					<img src="https://assets.codepen.io/2301174/icon-team-builder.svg" alt="">
+					<h2>Rekam Medis</h2>
+				</div>
+			</div>
+			<br>
+			<div class="o-flex-grid w-100">
+				<div class="box red o-flex-grid--item">
+					<img src="https://assets.codepen.io/2301174/icon-team-builder.svg" alt="">
+					<h2>Rawat Inap</h2>
+				</div>
+				<div class="box red o-flex-grid--item">
+					<img src="https://assets.codepen.io/2301174/icon-team-builder.svg" alt="">
+					<h2>Kamar Operasi</h2>
+				</div>
+				<div class="box red o-flex-grid--item">
+					<h1>coming soon...</h1>
+				</div>
+			</div>
+			<%-- <div class="pure-g">
+				<div class="pure-u-1 pure-u-lg-1-4 l-box" >
+				</div>
+				<div class="pure-u-1 pure-u-lg-1-4 l-box" >
+					<div class="box red">
+						<img src="https://assets.codepen.io/2301174/icon-team-builder.svg" alt="">
+						<h2>Apotek</h2>
+					</div>
+				</div>
+				<div class="pure-u-1 pure-u-lg-1-4 l-box" >
+					<div class="box red">
+						<img src="https://assets.codepen.io/2301174/icon-team-builder.svg" alt="">
+						<h2>Rekam Medis</h2>
+					</div>
+				</div>
+				<div class="pure-u-1 pure-u-lg-1-4 l-box" >
+					<div class="box red">
+						<img src="https://assets.codepen.io/2301174/icon-team-builder.svg" alt="">
+						<h2>Rawat Inap</h2>
+					</div>
+				</div>
+				<div class="pure-u-1 pure-u-lg-1-4 l-box" >
+					<div class="box red">
+						<img src="https://assets.codepen.io/2301174/icon-team-builder.svg" alt="">
+						<h2>Kamar Operasi</h2>
+					</div>
+				</div>
+			</div> --%>
+
 			<% }else if(act.equals("logout")){ %>
 			<jsp:include page="WEB-INF/jsp/konfirmasi_logout.jsp"/>
 			<% }else if(act.equals("info_akun")){ %>
