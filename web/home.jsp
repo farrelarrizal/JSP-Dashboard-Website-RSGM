@@ -121,34 +121,6 @@ if(isLogin == null || !isLogin.equals("1")){
 					<h1>coming soon...</h1>
 				</div>
 			</div>
-			<%-- <div class="pure-g">
-				<div class="pure-u-1 pure-u-lg-1-4 l-box" >
-				</div>
-				<div class="pure-u-1 pure-u-lg-1-4 l-box" >
-					<div class="box red">
-						<img src="https://assets.codepen.io/2301174/icon-team-builder.svg" alt="">
-						<h2>Apotek</h2>
-					</div>
-				</div>
-				<div class="pure-u-1 pure-u-lg-1-4 l-box" >
-					<div class="box red">
-						<img src="https://assets.codepen.io/2301174/icon-team-builder.svg" alt="">
-						<h2>Rekam Medis</h2>
-					</div>
-				</div>
-				<div class="pure-u-1 pure-u-lg-1-4 l-box" >
-					<div class="box red">
-						<img src="https://assets.codepen.io/2301174/icon-team-builder.svg" alt="">
-						<h2>Rawat Inap</h2>
-					</div>
-				</div>
-				<div class="pure-u-1 pure-u-lg-1-4 l-box" >
-					<div class="box red">
-						<img src="https://assets.codepen.io/2301174/icon-team-builder.svg" alt="">
-						<h2>Kamar Operasi</h2>
-					</div>
-				</div>
-			</div> --%>
 
 			<% }else if(act.equals("logout")){ %>
 			<jsp:include page="WEB-INF/jsp/konfirmasi_logout.jsp"/>
@@ -172,6 +144,8 @@ if(isLogin == null || !isLogin.equals("1")){
 			<jsp:include page="WEB-INF/jsp/pasien/delete_pasien.jsp"/>
 			<% }else if(act.equals("regis")){ %>
 			<jsp:include page="WEB-INF/jsp/admission/regispre.jsp"/>
+			<% }else if(act.equals("preadmisi") ||act.equals("admission")  ){ %>
+			<jsp:include page="WEB-INF/jsp/admission/main_pre.jsp"/>
 			<% } %>
 			</div>
 		</div>
