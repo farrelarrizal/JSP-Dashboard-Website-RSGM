@@ -69,8 +69,22 @@ if( act != null && act.equals("login")){
 			<div class="pure-u-1-3"></div>
 		</div>
 		<div class="pure-g">
-			<div class="pure-u-1-3"></div>
-			<div class="pure-u-1-3">
+			<div class="pure-u-1-5">
+				
+			</div>
+			<div class="pure-u-1-5">
+				<img src="img/person-sick.png" alt="sick person" width="300px">
+			</div>
+
+			<div class="pure-u-2-5">
+				<center>
+				<h3>Selamat Datang!</h3>
+				<h4>Silahkan registrasi online sebelum datang ke rumah sakit!</h4>
+				<button class="button-success pure-button">Daftar Sekarang</button>
+				</center>
+				<br>
+				<br>
+				<p> <center><small> bukan pasien? </small> </center></p>
 				<% if(errorMessage != null){ %>
 					<h4 align="center" style="background-color:red;"><%=errorMessage%></h4>
 				<% } %>
@@ -92,7 +106,7 @@ if( act != null && act.equals("login")){
 					</fieldset>
 				</form>
 			</div>
-			<div class="pure-u-1-3"></div>
+			<div class="pure-u-1-5"></div>
 		</div>
 	</body>
 </html>
