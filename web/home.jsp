@@ -5,6 +5,7 @@ if(act == null || act.trim().equals("")){
 	act = "default";
 }
 
+
 // String isLogin = (String) session.getAttribute("is_login");
 String isLogin = "1";
 
@@ -12,6 +13,8 @@ if(isLogin == null || !isLogin.equals("1")){
 	response.sendRedirect("index.jsp");
 	return;
 }
+
+
 
 %>
 <!DOCTYPE html>
@@ -23,6 +26,8 @@ if(isLogin == null || !isLogin.equals("1")){
 		<link rel="stylesheet" href="css/style-card.css"/>
 		<link rel="stylesheet" href="css/style-grid.css"/>
 		<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+		<script src="//cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+		<script src="sweetalert2.min.js"></script>
 
 		<!-- Date Picker-->
 		<style type="text/css">
@@ -121,35 +126,6 @@ if(isLogin == null || !isLogin.equals("1")){
 					<h1>coming soon...</h1>
 				</div>
 			</div>
-			<%-- <div class="pure-g">
-				<div class="pure-u-1 pure-u-lg-1-4 l-box" >
-				</div>
-				<div class="pure-u-1 pure-u-lg-1-4 l-box" >
-					<div class="box red">
-						<img src="https://assets.codepen.io/2301174/icon-team-builder.svg" alt="">
-						<h2>Apotek</h2>
-					</div>
-				</div>
-				<div class="pure-u-1 pure-u-lg-1-4 l-box" >
-					<div class="box red">
-						<img src="https://assets.codepen.io/2301174/icon-team-builder.svg" alt="">
-						<h2>Rekam Medis</h2>
-					</div>
-				</div>
-				<div class="pure-u-1 pure-u-lg-1-4 l-box" >
-					<div class="box red">
-						<img src="https://assets.codepen.io/2301174/icon-team-builder.svg" alt="">
-						<h2>Rawat Inap</h2>
-					</div>
-				</div>
-				<div class="pure-u-1 pure-u-lg-1-4 l-box" >
-					<div class="box red">
-						<img src="https://assets.codepen.io/2301174/icon-team-builder.svg" alt="">
-						<h2>Kamar Operasi</h2>
-					</div>
-				</div>
-			</div> --%>
-
 			<% }else if(act.equals("logout")){ %>
 			<jsp:include page="WEB-INF/jsp/konfirmasi_logout.jsp"/>
 			<% }else if(act.equals("info_akun")){ %>
@@ -170,8 +146,18 @@ if(isLogin == null || !isLogin.equals("1")){
 			<jsp:include page="WEB-INF/jsp/delete_user.jsp"/>
 			<% }else if(act.equals("delete-pasien")){ %>
 			<jsp:include page="WEB-INF/jsp/pasien/delete_pasien.jsp"/>
-			<% }else if(act.equals("regis")){ %>
-			<jsp:include page="WEB-INF/jsp/admission/regispre.jsp"/>
+			<% }else if( act.equals("admission")){ %>
+			<jsp:include page="WEB-INF/jsp/admission/main_pre.jsp"/>
+			<% }else if( act.equals("detail-pre")){ %>
+			<jsp:include page="WEB-INF/jsp/admission/detail_pre.jsp"/>
+			<% }else if( act.equals("edit-pre")){ %>
+			<jsp:include page="WEB-INF/jsp/admission/edit_pre.jsp"/>
+			<% }else if( act.equals("main-adms")){ %>
+			<jsp:include page="WEB-INF/jsp/admission/main_adms.jsp"/>
+			<% }else if( act.equals("detail-adms")){ %>
+			<jsp:include page="WEB-INF/jsp/admission/detail_adms.jsp"/>
+			<% }else if( act.equals("edit-adms")){ %>
+			<jsp:include page="WEB-INF/jsp/admission/edit_adms.jsp"/>
 			<% } %>
 			</div>
 		</div>

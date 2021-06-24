@@ -5,12 +5,7 @@
     font-family: "Avenir Next", "Avenir", "Helvetica Neue", "Helvetica", "Arial", sans-serif;
     padding: 20px;
   }
-  h1 {
-    font-size: 40px;
-    margin: 0 0 20px;
-    opacity: 0.1;
-    text-align: center;
-  }
+
   .c-yellow .o-flex-grid--item {
     background: #f1c40f;
   }
@@ -68,6 +63,10 @@
   .w-100 {
     max-width: 1200px;
     width: 100%;
+  }
+  .w-80 {
+    max-width: 1200px;
+    width: 80%;
   }
   @media (max-width: 800px) {
     .o-flex-grid {

@@ -14,7 +14,7 @@
     String idTemp[] = pasien.getString("_id").split("pasien:");  
 %>
 
-<h1>Detail Pasien</h1>
+<h2>Detail Pasien</h2>
 
 <%if(edit!= null){%>
 <p style="background: <%out.print("#28a745");%>;color:white"><b><%="Data Berhasil di update!"%></b></p>
