@@ -160,6 +160,8 @@ if(isLogin == null || !isLogin.equals("1")){
 			<jsp:include page="WEB-INF/jsp/admission/edit_adms.jsp"/>
 			<% }else if( act.equals("apotek")){ %>
 			<jsp:include page="WEB-INF/jsp/apotek/apotek.jsp"/>
+			<% }else if( act.equals("tambah-obat")){ %>
+			<jsp:include page="WEB-INF/jsp/apotek/tambah_obat.jsp"/>
 			<% } %>
 			</div>
 		</div>
