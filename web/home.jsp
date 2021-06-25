@@ -158,6 +158,8 @@ if(isLogin == null || !isLogin.equals("1")){
 			<jsp:include page="WEB-INF/jsp/admission/detail_adms.jsp"/>
 			<% }else if( act.equals("edit-adms")){ %>
 			<jsp:include page="WEB-INF/jsp/admission/edit_adms.jsp"/>
+			<% }else if( act.equals("apotek")){ %>
+			<jsp:include page="WEB-INF/jsp/apotek/apotek.jsp"/>
 			<% } %>
 			</div>
 		</div>
