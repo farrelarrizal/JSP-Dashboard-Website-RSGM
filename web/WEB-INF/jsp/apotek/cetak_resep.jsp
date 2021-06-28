@@ -47,7 +47,7 @@
                 </tr>
             </tbody>
         </table>
-    <a class="pure-button pure-button-primary" href="?act=tambah-obat" style="margin-top:25px;" >Cetak Faktur</a>
+    <a class="pure-button pure-button-primary" href="?act=" style="margin-top:25px;" >Cetak Faktur</a>
 
     <h2> Cetak Resep</h2>
         <table class="pure-table pure-table-horizontal" >
@@ -90,6 +90,6 @@
                 </tr>
             </tbody>
         </table>
-    <a class="pure-button pure-button-primary" href="?act=tambah-obat" style="margin-top:25px;" >Cetak Resep</a>
+    <a class="pure-button pure-button-primary" href="?act=" style="margin-top:25px;" >Cetak Resep</a>
 	</div>
 </div>
