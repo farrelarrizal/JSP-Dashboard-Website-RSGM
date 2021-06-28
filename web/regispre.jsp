@@ -34,7 +34,7 @@
 				<div class="pure-menu pure-menu-horizontal" >
 					<a href="home.jsp" class="pure-menu-heading pure-menu-link"><img class="pure-img" width="100" src="img/logo.png"></a>
 					<ul class="pure-menu-list">
-						<h3>Rumah Sakit Gigi dan Mulut Universitas Airlangga</h3>
+						<h3>Rumah Sakit Gigi dan Mulut Universitas Airlangga - RSGM UNAIR 2021</h3>
 						<small>Jl. Mayjen Prof. Dr. Moestopo No.47 Kota Surabaya, Jawa Timur</small>
 						<small>081231123123</small>
 					</ul>	
