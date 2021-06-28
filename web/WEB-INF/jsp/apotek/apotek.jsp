@@ -11,7 +11,7 @@
                     </div>
                     <div style="margin-top:25px; font-size:1.2em">
                     <a class="pure-button pure-button-primary" href="?act=tambah-obat" style="margin-right:5px;" >Tambahkan Obat</a>
-                    <a class="pure-button pure-button-primary" href="?act=tambah-obat" style="margin-right:5px;" >Tampilkan Resep</a>
+                    <a class="pure-button pure-button-primary" href="?act=tampil-resep" style="margin-right:5px;" >Tampilkan Resep</a>
                        
                     </div>
                 </fieldset>

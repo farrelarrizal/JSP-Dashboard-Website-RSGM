@@ -19,11 +19,11 @@
         <form class="pure-form pure-form-aligned pure-u-1-3" style="margin-top:25px">
             <fieldset >
                 <div class="pure-control-group">
-                    <label for="aligned-name">Daftar Obat</label>
+                    <label for="aligned-name">Daftar Obat:</label>
                     <input type="text" id="aligned-name"  />
                 </div>
                 <div class="pure-control-group">
-                    <label for="aligned-password">Kuantitas</label>
+                    <label for="aligned-password">Kuantitas:</label>
                     <input type="password" id="aligned-password"  />
                 </div>
                     <div style="margin-top:25px; font-size:1.2em">
@@ -34,10 +34,9 @@
         <table class="pure-table pure-table-bordered">
             <thead>
                 <tr>
-                    <th>#</th>
-                    <th>Make</th>
-                    <th>Model</th>
-                    <th>Year</th>
+                    <th>No</th>
+                    <th>Nama Obat</th>
+                    <th>Kuantitas</th>
                 </tr>
             </thead>
             <tbody>
@@ -45,22 +44,22 @@
                     <td>1</td>
                     <td>Honda</td>
                     <td>Accord</td>
-                    <td>2009</td>
                 </tr>
                 <tr>
                     <td>2</td>
                     <td>Toyota</td>
                     <td>Camry</td>
-                    <td>2012</td>
                 </tr>
                 <tr>
                     <td>3</td>
                     <td>Hyundai</td>
                     <td>Elantra</td>
-                    <td>2010</td>
                 </tr>
             </tbody>
         </table>
+        <div style="margin-top:25px; font-size:1.2em">
+                    <a class="pure-button pure-button-primary" href="?act=tampil-resep" style="margin-right:5px;" >Tampilkan Resep</a>
+                    </div>
 
 	</div>
 </div>

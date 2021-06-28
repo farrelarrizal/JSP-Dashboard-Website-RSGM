@@ -162,6 +162,10 @@ if(isLogin == null || !isLogin.equals("1")){
 			<jsp:include page="WEB-INF/jsp/apotek/apotek.jsp"/>
 			<% }else if( act.equals("tambah-obat")){ %>
 			<jsp:include page="WEB-INF/jsp/apotek/tambah_obat.jsp"/>
+			<% }else if( act.equals("tampil-resep")){ %>
+			<jsp:include page="WEB-INF/jsp/apotek/tampil_resep.jsp"/>
+			<% }else if( act.equals("cetak-resep")){ %>
+			<jsp:include page="WEB-INF/jsp/apotek/cetak_resep.jsp"/>
 			<% } %>
 			</div>
 		</div>
