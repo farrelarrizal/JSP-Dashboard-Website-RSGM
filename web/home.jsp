@@ -158,6 +158,42 @@ if(isLogin == null || !isLogin.equals("1")){
 			<jsp:include page="WEB-INF/jsp/admission/detail_adms.jsp"/>
 			<% }else if( act.equals("edit-adms")){ %>
 			<jsp:include page="WEB-INF/jsp/admission/edit_adms.jsp"/>
+			<% }else if( act.equals("apotek")){ %>
+			<jsp:include page="WEB-INF/jsp/apotek/apotek.jsp"/>
+			<% }else if( act.equals("tambah-obat")){ %>
+			<jsp:include page="WEB-INF/jsp/apotek/tambah_obat.jsp"/>
+			<% }else if( act.equals("tampil-resep")){ %>
+			<jsp:include page="WEB-INF/jsp/apotek/tampil_resep.jsp"/>
+			<% }else if( act.equals("cetak-resep")){ %>
+			<jsp:include page="WEB-INF/jsp/apotek/cetak_resep.jsp"/>
+			<% }else if( act.equals("rawat-inap")){ %>
+			<jsp:include page="WEB-INF/jsp/rawatinap/rawat_inap.jsp"/>
+			<% }else if( act.equals("tipe-inap")){ %>
+			<jsp:include page="WEB-INF/jsp/rawatinap/tipe_inap.jsp"/>
+			<% }else if( act.equals("kamar-inap")){ %>
+			<jsp:include page="WEB-INF/jsp/rawatinap/kamar_inap.jsp"/>
+			<% }else if( act.equals("tambah-inap")){ %>
+			<jsp:include page="WEB-INF/jsp/rawatinap/tambah_inap.jsp"/>
+			<% }else if( act.equals("detail-inap")){ %>
+			<jsp:include page="WEB-INF/jsp/rawatinap/detail_inap.jsp"/>
+			<% }else if( act.equals("remove-inap")){ %>
+			<jsp:include page="WEB-INF/jsp/rawatinap/remove_inap.jsp"/>
+			<% }else if( act.equals("rekam-medis")){ %>
+			<jsp:include page="WEB-INF/jsp/rekammedis/list_rekamMedis.jsp"/>
+			<% }else if( act.equals("detail-rekammedis")){ %>
+			<jsp:include page="WEB-INF/jsp/rekammedis/detail_rekamMedis.jsp"/>
+			<% }else if( act.equals("edit-rekammedis")){ %>
+			<jsp:include page="WEB-INF/jsp/rekammedis/edit_rekamMedis.jsp"/>
+			<% }else if( act.equals("delete-rekammedis")){ %>
+			<jsp:include page="WEB-INF/jsp/rekammedis/delete_rekamMedis.jsp"/>
+			<% }else if( act.equals("kamar-operasi")){ %>
+			<jsp:include page="WEB-INF/jsp/kamaroperasi/main_adms.jsp"/>
+			<% }else if( act.equals("detail-kamar-operasi")){ %>
+			<jsp:include page="WEB-INF/jsp/kamaroperasi/detail_adms.jsp"/>
+			<% }else if( act.equals("form-kamar-operasi")){ %>
+			<jsp:include page="WEB-INF/jsp/kamaroperasi/form_adms.jsp"/>
+			<% }else if( act.equals("edit-kamar-operasi")){ %>
+			<jsp:include page="WEB-INF/jsp/kamaroperasi/edit_adms.jsp"/>
 			<% } %>
 			</div>
 		</div>
