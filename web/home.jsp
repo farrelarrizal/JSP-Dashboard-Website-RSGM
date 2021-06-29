@@ -66,7 +66,7 @@ if(isLogin == null || !isLogin.equals("1")){
 							<a href="?act=rekam-medis" class="pure-menu-link">Rekam Medis</a>
 						</li>
 						<li class="pure-menu-item">
-							<a href="?act=rawat-inap" class="pure-menu-link">Rawat Inap</a>
+							<a href="?act=rawat-inap" class="pure-menu-link">Rawat inap</a>
 						</li>
 						<li class="pure-menu-item">
 							<a href="?act=kamar-operasi" class="pure-menu-link">Kamar Operasi</a>
