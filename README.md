@@ -28,7 +28,7 @@ git push origin
 
 ## Konfigurasi Database
 Dukungan database dalam project ini menggunakan apache couchdb. Berikut adalah panduan untuk konfigurasi database
-* Membuat database baru dengan nama `rsgm unair` no partition.
+* Membuat database baru dengan nama `rsgm_unair` no partition.
 * Membuat view baru meliputi :
     1. User : Membuat Design _design/`user` dengan index name `all` dan Map Function berikut:
     ``` 
@@ -49,4 +49,5 @@ Dukungan database dalam project ini menggunakan apache couchdb. Berikut adalah p
     
     ## Konfigurasi Website
     Dukungan bahasa pengembangan menggunakan Java dan JSP sebagai output keluaran halaman. Sebelum memulai anda harus memastikan `apache-tomcat` sudah running. 
+    
     Compile dengan menggunakan perintah `ant gas` untuk melakukan deployment ke localhost.
