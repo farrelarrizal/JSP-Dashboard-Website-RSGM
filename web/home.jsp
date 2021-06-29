@@ -98,34 +98,47 @@ if(isLogin == null || !isLogin.equals("1")){
 			<div class="pure-u-1" align="center">
 			<% if(act.equals("default")){ %>
 			<h3> Silakan memilih menu </h3>
-			<div class="o-flex-grid w-100">
-				<div class="box red o-flex-grid--item">
-					<img src="https://assets.codepen.io/2301174/icon-team-builder.svg" alt="">
-					<h2>Admission</h2>
+			<%-- <form action=""> --%>
+				<div class="o-flex-grid w-100">
+					
+					<div class="box red o-flex-grid--item">
+						<a href="?act=admission">
+						<img src="https://assets.codepen.io/2301174/icon-team-builder.svg" alt="">
+						<h2>Admission</h2>
+						</a>
+					</div>
+					<div class="box red o-flex-grid--item">
+						<a href="?act=apotek">
+						<img src="img/medicine.png" width="75px" alt="">
+						<h2>Apotek</h2>
+						</a>
+					</div>
+					<div class="box red o-flex-grid--item">
+						<a href="?act=rekam-medis">
+						<img src="img/pulse.png" width="75px" alt="">
+						<h2>Rekam Medis</h2>
+						</a>
+					</div>
 				</div>
-				<div class="box red o-flex-grid--item">
-					<img src="https://assets.codepen.io/2301174/icon-team-builder.svg" alt="">
-					<h2>Apotek</h2>
+				<br>
+				<div class="o-flex-grid w-100">
+					<div class="box red o-flex-grid--item">
+						<a href="?act=rawat-inap">
+						<img src="img/health-insurance.png" width="75px"alt="">
+						<h2>Rawat Inap</h2>
+						</a>
+					</div>
+					<div class="box red o-flex-grid--item">
+						<a href="?act=kamar-operasi">
+						<img src="img/surgery-room.png" alt="" width="75px">
+						<h2>Kamar Operasi</h2>
+						</a>
+					</div>
+					<div class="box red o-flex-grid--item">
+						<h1>coming soon...</h1>
+					</div>
 				</div>
-				<div class="box red o-flex-grid--item">
-					<img src="https://assets.codepen.io/2301174/icon-team-builder.svg" alt="">
-					<h2>Rekam Medis</h2>
-				</div>
-			</div>
-			<br>
-			<div class="o-flex-grid w-100">
-				<div class="box red o-flex-grid--item">
-					<img src="https://assets.codepen.io/2301174/icon-team-builder.svg" alt="">
-					<h2>Rawat Inap</h2>
-				</div>
-				<div class="box red o-flex-grid--item">
-					<img src="https://assets.codepen.io/2301174/icon-team-builder.svg" alt="">
-					<h2>Kamar Operasi</h2>
-				</div>
-				<div class="box red o-flex-grid--item">
-					<h1>coming soon...</h1>
-				</div>
-			</div>
+			<%-- </form> --%>
 			<% }else if(act.equals("logout")){ %>
 			<jsp:include page="WEB-INF/jsp/konfirmasi_logout.jsp"/>
 			<% }else if(act.equals("info_akun")){ %>
