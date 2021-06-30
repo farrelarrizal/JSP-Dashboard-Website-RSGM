@@ -68,3 +68,5 @@ Dukungan database dalam project ini menggunakan apache couchdb. Berikut adalah p
     Dukungan bahasa pengembangan menggunakan Java dan JSP sebagai output keluaran halaman. Sebelum memulai anda harus memastikan `apache-tomcat` sudah running. 
     
     Compile dengan menggunakan perintah `ant gas` untuk melakukan deployment ke localhost.
+    
+    Url website : `localhost:<port-anda>/user_management/`
