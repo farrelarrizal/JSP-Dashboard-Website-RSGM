@@ -1,16 +1,29 @@
-<div class="o-flex-grid w-100">
-    <div class="o-flex-grid--item">
-    <a href="?act=admission">
-        <p>Pre Admission</p>
-    </a>
-    </div>
-    <div class="o-flex-grid--item">
-        <p> Admission</p>
-    </div>
+<%@ page import="java.util.*" %>
+<%@ page import="rsgm_unair.admission_management.*" %>
+<%@ page import="rsgm_unair.pasien_management.*" %>
+<%@ page import="rsgm_unair.user_management.*" %>
+<%@ page import="rsgm_unair.shared.*" %>
+<%@ page import="org.json.*" %>
+
+<%
+
+    
+    Paging pageAdms = AdmissionManagement.getAdmsPasien();
+    
+    String idTemp = null;
+    String [] idPasien = new String[2];
+
+    out.print(pageAdms);
+%>
+
+
+<div class="o-flex-grid w-100" style="margin:auto">
+    <a style="font-size:170% ; color:white ; background-color:#28527a; margin-left:25%" class=" pure-button" href="?act=admission"><b>Pre Admission</b></a>
+    <a style="font-size:170% ; color:white ; background-color:#28527a; margin-right:25%" class=" pure-button" href="?act=main-adms&"><b>Admission</b></a>
 </div>
-<h2> Daftar Admission </h2>
 <div style="margin-top:-2%" class="o-flex-grid w-100">
     <div class="o-flex-grid--item">
+<h2> Daftar Admission </h2>
 		<table class="pure-table">
             <thead>
                 <tr>
@@ -24,45 +37,25 @@
                 </tr>
             </thead>
             <tbody>
-                <tr class="pure-table-odd" >
-                    <td >1</td>
-                    <td>Tn. Udin</td>
+                <% for(int i = 0; i < pageAdms.getResultList().size(); i++) { 
+
+                    idTemp = pageAdms.getResultList().get(i).getString("_id");
+                    idPasien = idTemp.split("pasien:") ;
+                    
+                %>
+                <tr class="pure-table<%if((i+1) %2 == 1){out.print("-odd");}%>" >
+                    <td><%=i+1  %></td>
+                    <td><%=pageAdms.getResultList().get(i).getString("nama")%></td>
                     <td>AA15236</td>
-                    <td><center>Laki-Laki</center></td>
-                    <td><center>12 - 06 - 2021</center></td>
+                    <td><center><%=pageAdms.getResultList().get(i).getString("jk")%></center></td>
+                    <td><center><%=pageAdms.getResultList().get(i).getString("tglDatang")%></center></td>
                     <td><center>DHF</center></td>
                     <td>
                             <a style="font-size:70% ; color:white ; background-color:#28527a" class=" pure-button" href="?act=detail-pre&id=1"><b>Detail</b></a>
-                            |
-                            <a style="font-size:70% ; color:white ; background-color:#cf0000" class=" pure-button" href="?act=delete-pasien&id=1"><b>Delete</b></a>
+                            
                     </td>
                 </tr>
-                <tr class="pure-table" >
-                    <td >1</td>
-                    <td>Tn. Udin</td>
-                    <td>AA15236</td>
-                    <td><center>Laki-Laki</center></td>
-                    <td><center>12 - 06 - 2021</center></td>
-                    <td><center>DHF</center></td>
-                    <td>
-                            <a style="font-size:70% ; color:white ; background-color:#28527a" class=" pure-button" href="?act=detail-pre&id=1"><b>Detail</b></a>
-                            |
-                            <a style="font-size:70% ; color:white ; background-color:#cf0000" class=" pure-button" href="?act=delete-pasien&id=1"><b>delete</b></a>
-                    </td>
-                </tr>
-                <tr class="pure-table-odd" >
-                    <td >1</td>
-                    <td>Tn. Udin</td>
-                    <td>AA15236</td>
-                    <td><center>Laki-Laki</center></td>
-                    <td><center>12 - 06 - 2021</center></td>
-                    <td><center>PCOS</center></td>
-                    <td>
-                            <a style="font-size:70% ; color:white ; background-color:#28527a" class=" pure-button" href="?act=detail-pre&id=1"><b>Detail</b></a>
-                            |
-                            <a style="font-size:70% ; color:white ; background-color:#cf0000" class=" pure-button" href="?act=delete-pasien&id=1"><b>delete</b></a>
-                    </td>
-                </tr>
+                <%}%>
             </tbody>
         
         </table>

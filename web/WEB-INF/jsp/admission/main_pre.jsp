@@ -15,17 +15,9 @@
 %>
 
 
-<div class="o-flex-grid w-100">
-    <div class="o-flex-grid--item">
-    <a href="">
-        <p>Pre Admission</p>
-    </a>
-    </div>
-    <div class="o-flex-grid--item">
-        <a href="?act=main-adms">
-            <p>Admission</p>
-        </a>
-    </div>
+<div class="o-flex-grid w-100" style="margin:auto">
+    <a style="font-size:170% ; color:white ; background-color:#28527a; margin-left:25%" class=" pure-button" href="?act=admission"><b>Pre Admission</b></a>
+    <a style="font-size:170% ; color:white ; background-color:#28527a; margin-right:25%" class=" pure-button" href="?act=main-adms&id=1"><b>Admission</b></a>
 </div>
 <h2> Daftar Pre-Admission </h2>
 
@@ -56,9 +48,9 @@
                     <td><center><%=pagePreAdms.getResultList().get(i).getString("jk")%></center></td>
                     <td><center><%=pagePreAdms.getResultList().get(i).getString("tglDatang")%></center></td>
                     <td>
-                            <a style="font-size:70% ; color:white ; background-color:#28527a" class=" pure-button" href="?act=detail-pre&id=<%=idPasien[1]%>"><b>Detail</b></a>
+                            <a style="font-size:70% ; color:white ; background-color:#28527a" class=" pure-button" href="?act=detail-adms&id=<%=idPasien[1]%>"><b>Detail</b></a>
                             |
-                            <a style="font-size:70% ;  background-color:#fdca40" class="pure-button" href="?act=edit-pre&id=<%=idPasien[1]%>"><b><strong>Admisi</strong></b></a>
+                            <a style="font-size:70% ;  background-color:#fdca40" class="pure-button" href="?act=form-adms&id=<%=idPasien[1]%>"><b><strong>Admisi</strong></b></a>
                             |
                             <a style="font-size:70% ; color:white ; background-color:#cf0000" class=" pure-button" href="?act=delete-pasien&id=<%=idPasien[1]%>"><b>Delete</b></a>
                     </td>

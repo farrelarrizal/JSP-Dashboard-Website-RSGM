@@ -19,6 +19,14 @@ import lombok.ToString;
     private String asalRujukan;
     private String preAdms;
     private String adms;
+    private String klinis;
+    private String tglKonsultasi;
+    private String tensi;
+    private String pulse;
+    private String temperature;
+    private String diagnosa;
+    private String alasanDiagnosa;
+
     private String rev;
     
 }

@@ -1,78 +1,100 @@
+<%@ page import="java.util.*" %>
+<%@ page import="rsgm_unair.admission_management.*" %>
+<%@ page import="rsgm_unair.pasien_management.*" %>
+<%@ page import="rsgm_unair.user_management.*" %>
+<%@ page import="rsgm_unair.shared.*" %>
+<%@ page import="org.json.*" %>
 
-                <h2>Edit Formulir Pre Admission Pasien</h2>
 
-                <form class="pure-form pure-form-aligned" method="post" action="?act=tambahpasien">
+<%  String uniqueIdGenerator = UUID.randomUUID().toString();
+    String [] uniqueTemp = uniqueIdGenerator.split("-");
+    String uniqueID = uniqueTemp[1].toUpperCase()+uniqueTemp[2].toUpperCase();
+
+    // Tambah Pasien
+    String action = null;
+    action = request.getParameter("action");
+    
+    Response resp = null;
+    
+    if(action != null && action.equals("tambahPreAdmission")){
+
+        FormRegisPre fr = new FormRegisPre();
+        fr.setIdPasien(request.getParameter("id-pasien"));
+        fr.setNama(request.getParameter("nama"));
+        fr.setNik(request.getParameter("nik"));
+        fr.setTglLahir(request.getParameter("tglLahir"));
+        fr.setJk(request.getParameter("jk"));
+        fr.setAlamat(request.getParameter("alamat"));
+        fr.setNoHP(request.getParameter("noHP"));
+        fr.setPembayaran(request.getParameter("pembayaran"));
+        fr.setTglDatang(request.getParameter("tglDatang"));
+        fr.setKeluhan(request.getParameter("keluhan"));
+        fr.setAsalRujukan(request.getParameter("asalRujukan"));
+        fr.setAdms("true");
+        
+        resp = AdmissionManagement.managePasien(fr);
+
+        %>
+            <script>
+                window.location.href="?act=main-adms&id=<%=idTemp[1]%>&resp=<%=resp.getKode()%>"
+            </script>
+<%}%>
+		<div class="pure-g">
+			<div class="pure-u-1" align="center">
+				
+
+                <%-- <%if(action != null && action.equals("tambahPreAdmission")){%>
+                    <p style="background: <%if(resp.getKode()==0){out.print("#28a745");}else{out.print("#cf0000");}%>;color:white"><b><%=resp.getPesan()%></b></p>
+                    <%if(resp.getKode()==0){%>
+                        <p style="background: #28a745; color:white"> Harap Simpan ID Anda : <%=resp.getID()%> </p>
+                    <%}%>
+
+                <%}%> --%>
+                <h2>Update Formulir Admission Pasien </h2>
+                <h4>Nama Pasien : Udin Juleha (BRWQWS) </h4>
+               
+                <form class="pure-form pure-form-aligned" method="post" action="?act=form-adms">
                     <fieldset>
+                        <input type="hidden" id="id-pasien" name="id-pasien" value="">
+                        <input type="hidden"  name="action" value="edit-adms">
                         <div class="pure-control-group">
-                            <label for="dokter">Tanggal Kedatangan</label>
-                            <input  type="date" autocomplete="off" id="dokter" name="dokter" placeholder="" class="pure-input-1-4" required />
-                        </div>
-                        <div class="pure-control-group">
-                            <label for="keluhan">Keluhan/kondisi terkait pasien (opsional)</label>
-                            <textarea class="pure-input-1-4" autocomplete="off" id="keluhan" name="keluhan" placeholder="Masukkan keluhan pasien ..." required></textarea>
-                        </div>
-                        <div class="pure-control-group">
-                            <label for="dokter">Asal RS Rujukan (Optional)</label>
-                            <input type="text" autocomplete="off" id="nik" name="nik" placeholder="masukkan asal RS" class="pure-input-1-4" required />
-                        </div>
-
-                        <p> Data Pasien </p>
-                        <div class="pure-control-group">
-                            <label for="no-IC">Nama Lengkap Pasien</label>
-                            <input type="text" id="no-IC" name="ic-pasien" autocomplete="off" placeholder="masukkan nama pasien" class="pure-input-1-4" />
-                            <span style="margin-left:2% " class="pure-form-message">Nama Lengkap (Sesuai KTP/passport)</span>
-                        </div>
-                        <div class="pure-control-group ">
-                            <label for="jenis-kelamin">Jenis Kelamin</label>
-                            <select id="jenis-kelamin" name=jk class="pure-input-1-4" >
-                                <option>Laki - Laki</option>
-                                <option>Perempuan</option>
-                            </select>
-                        </div>
-                        <div class="pure-control-group">
-                            <label for="tgl-masuk-pasien">Tanggal Lahir Pasien</label>
-                            <input type="date" id="tgl-masuk-pasien" name="tgl-masuk-pasien"  class="pure-input-1-4" required />
-                        </div>
-                        <div class="pure-control-group">
-                            <label for="dokter">NIK</label>
+                            <label for="nik">Kondisi Klinis</label>
                             <input type="text" autocomplete="off" id="nik" name="nik" placeholder="masukkan nomer NIK" class="pure-input-1-4" required />
                         </div>
                         <div class="pure-control-group">
-                            <label for="jenis-kelamin">Status Pernikahan</label>
-                            <select id="jenis-kelamin" name=jk class="pure-input-1-4" >
-                                <option>Menikah</option>
-                                <option>Tidak Menikah</option>
-                            </select>
+                            <label for="tglLahir">Tanggal Konsultasi</label>
+                            <input type="date" id="tglLahir" name="tglLahir"  class="pure-input-1-4" required />
                         </div>
                         <div class="pure-control-group">
-                            <label for="alamat-pasien">Email</label>
-                            <input type="text" id="alamat-pasien" name="alamat-pasien" autocomplete="off" placeholder="masukkan alamat email" class="pure-input-1-4" required />
-                        </div>
-                        
-                        <div class="pure-control-group">
-                            <label for="alamat-pasien">Alamat Pasien</label>
-                            <input type="text" id="alamat-pasien" name="alamat-pasien" autocomplete="off" placeholder="masukkan alamat pasien" class="pure-input-1-4" required />
+                            <label for="alamat">Tensi Pasien : </label>
+                            <input type="text" id="alamat" name="alamat" autocomplete="off" placeholder="masukkan alamat pasien" class="pure-input-1-4" required />
                         </div>
                         <div class="pure-control-group">
-                            <label for="hp-pasien">No HP Pasien</label>
-                            <input type="text" id="hp-pasien" name="hp-pasien" autocomplete="off" placeholder="masukkan no hp" class="pure-input-1-4"required />
+                            <label for="alamat">Denyut Jantung Pasien : </label>
+                            <input type="text" id="alamat" name="alamat" autocomplete="off" placeholder="Misalnya: 120/80" class="pure-input-1-4" required />
                         </div>
                         <div class="pure-control-group">
-                            <label for="jenis-kelamin">Kewarganegaraan</label>
-                            <select id="jenis-kelamin" name=jk class="pure-input-1-4" >
-                                <option>WNI</option>
-                                <option>WNA</option>
-                            </select>
+                            <label for="alamat">Temperatur Pasien : </label>
+                            <input type="text" id="alamat" name="alamat" autocomplete="off" placeholder="Temperatur satuan derajat celcius" class="pure-input-1-4" required />
                         </div>
                         <div class="pure-control-group">
-                            <label for="jenis-kelamin">Pembayaran</label>
-                            <select id="jenis-kelamin" name=jk class="pure-input-1-4" >
-                                <option>Sendiri</option>
-                                <option>BPJS</option>
-                                <option>Asuransi Non BPJS</option>
-                            </select>
+                            <label for="keluhan">Diagnosa Awal</label>
+                            <textarea class="pure-input-1-4" autocomplete="off" id="keluhan" name="keluhan" placeholder="Masukkan keluhan pasien ..." required></textarea>
                         </div>
-                        <button type="submit" style="background: #28a745; color: #fff" class="pure-button">Submit</button>
-                        <a href="?act=detail-pre" style=" background-color:#fdca40" class="pure-button ">Batal</a>
+                        <div class="pure-control-group">
+                            <label for="keluhan">Alasan Diagnosa</label>
+                            <textarea class="pure-input-1-4" autocomplete="off" id="keluhan" name="keluhan" placeholder="Masukkan keluhan pasien ..." required></textarea>
+                        </div>
+                        <button type="submit" style="background: #28a745; color: #fff" class="pure-button">Update</button>
+                        <a href="?act=admission" style=" background-color:#fdca40" class="pure-button ">Batal</a>
                     </fieldset>
                 </form>
+			</div>
+
+		</div>
+		
+		</div>
+	
+		
+	</body>
+</html>

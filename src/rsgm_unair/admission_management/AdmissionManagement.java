@@ -68,7 +68,31 @@ public class AdmissionManagement {
                 }
             }
         }
+        if(frp.getAdms()!= null && frp.getAdms().equals("true")){
+            CouchdbClient pasienClient = CouchHelper.createClient();
+                                                    
+            String id = "pasien:"+ frp.getIdPasien();
+            JSONObject pasien = pasienClient.getDoc(id);
 
+            // buat update
+            pasien.put("_rev",frp.getRev());
+            
+            pasien.put("adms",frp.getAdms());
+            pasien.put("klinis",frp.getKlinis());
+            pasien.put("tglKonsultasi",frp.getTglKonsultasi());
+            pasien.put("tensi",frp.getTensi());
+            pasien.put("pulse",frp.getPulse());
+            pasien.put("temperature",frp.getTemperature());
+            pasien.put("diagnosa",frp.getDiagnosa());
+            pasien.put("alasanDiagnosa",frp.getAlasanDiagnosa());
+
+            pasienClient.setDoc(id, pasien);
+
+            message.setKode(Response.OK);
+            message.setPesan("Data berhasil di tambahkan cuk!");
+            message.setID(frp.getIdPasien());
+            pasienClient = null;            
+        }
 
         return message;
     }
@@ -82,6 +106,33 @@ public class AdmissionManagement {
 
         // execute couch db get doc
         JSONObject resultRawDoc = pasienClient.view("preAdms","all",parameter);
+        JSONArray resultDoc = resultRawDoc.getJSONArray("rows");
+
+        doc.setDebug(parameter);
+        // disimpen di array
+        List<JSONObject> resultArrayDoc = new ArrayList<JSONObject>();
+
+        for (int i = 0; i < resultDoc.length(); i++) {
+            JSONObject objDoc = resultDoc.getJSONObject(i);
+            resultArrayDoc.add(objDoc.getJSONObject("doc"));
+
+        }
+
+        doc.setResultList(resultArrayDoc);
+        pasienClient = null;
+
+        return doc;
+    }
+
+    public static Paging getAdmsPasien() throws Exception{
+        Paging doc = new Paging();
+
+        CouchdbClient pasienClient = CouchHelper.createClient(); 
+        String parameter = null;
+        parameter = "include_docs=true";
+
+        // execute couch db get doc
+        JSONObject resultRawDoc = pasienClient.view("adms","all",parameter);
         JSONArray resultDoc = resultRawDoc.getJSONArray("rows");
 
         doc.setDebug(parameter);
