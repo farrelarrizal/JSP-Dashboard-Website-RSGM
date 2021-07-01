@@ -9,7 +9,7 @@ import java.util.*;
 import java.util.logging.*;
 import radityopw.couchdbclient.*;
 
-public class FormCariPasien {
+public class TambahObat {
 
     public static JSONObject searchPasien(String id) throws Exception{
         String docId = "pasien:"+id;
@@ -24,4 +24,5 @@ public class FormCariPasien {
         }
         return pasien;
     }
+    
 }

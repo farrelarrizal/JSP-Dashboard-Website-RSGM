@@ -8,12 +8,37 @@
     String resp = request.getParameter("resp");
     String name = request.getParameter("nama-pasien");
     String id = request.getParameter("id");
-    JSONObject detailPasien = FormCariPasien.searchPasien(id);
+    JSONObject detailPasien = TambahObat.searchPasien(id);
     String idTemp[] = detailPasien.getString("_id").split("pasien:");  
+
+    String action = null;
+    action = request.getParameter("update");
+    
+    Response resp = null;
+    JSONObject pasien = null
+
+ if(action != null && action.equals("yes")){
+
+        VarTambahObat ep = new VarTambahObat();
+        //ep.setRev(request.getParameter("_rev"));
+        ep.setIdPasien(request.getParameter("idPasien"));
+        ep.setNama(request.getParameter("nama"));
+        ep.setUmur(request.getParameter("umur"));
+        ep.setAlamat(request.getParameter("alamat"));
+        ep.setDokter(request.getParameter("dokter"));
+        ep.setTanggalLahir(request.getParameter("tanggalLahir"));
+        ep.setTanggalMasuk(request.getParameter("tanggalMasuk"));
+        ep.setPerawatan(request.getParameter("perawatan"));
+        ep.setKeluhan(request.getParameter("keluhan"));
+        ep.setStatusRawat(request.getParameter("statusRawat"));
+        ep.setAsuransi(request.getParameter("asuransi"));
+
+
+      resp = ApotekManagement.editObat(ep);
+        
+
+
 %>
-
-
-
 
 
 
@@ -39,14 +64,14 @@
             <fieldset >
                 <div class="pure-control-group">
                     <label for="aligned-name">Daftar Obat:</label>
-                    <input type="text" id="aligned-name"  />
+                    <input type="text" id="obat" name="obat"  />
                 </div>
                 <div class="pure-control-group">
                     <label for="aligned-password">Kuantitas:</label>
-                    <input type="password" id="aligned-password"  />
+                    <input type="text" id="jumlahObat" name="jumlahObat"  />
                 </div>
                     <div style="margin-top:25px; font-size:1.2em">
-                    <a class="pure-button pure-button-primary" href="?act=tambah-obat" style="margin-right:5px;" >Tambahkan Obat</a>
+                    <button class="pure-button" type="submit" style="margin-right:5px;">Tambahkan Obat</button>
                     </div>
             </fieldset>
         </form>
