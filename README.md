@@ -49,7 +49,7 @@ Dukungan database dalam project ini menggunakan apache couchdb. Berikut adalah p
      3. PreAdms : Membuat Design _design/`preAdms` dengan index name `all` dan Map Function berikut:
     ``` 
     function (doc) {
-        if(doc.preAdms,"true" && doc._id.startsWith("pasien:")){
+        if(doc.preAdms=="true" && doc._id.startsWith("pasien:")){
             emit(doc.nama, doc.nik);
         }
     }
@@ -57,7 +57,7 @@ Dukungan database dalam project ini menggunakan apache couchdb. Berikut adalah p
     4. Adms : Membuat Design _design/`adms` dengan index name `all` dan Map Function berikut:
     ``` 
     function (doc) {
-        if(doc.adms,"true" && doc._id.startsWith("pasien:")){
+        if(doc.Adms=="true" && doc._id.startsWith("pasien:")){
             emit(doc.nama, doc.nik);
         }
     }
