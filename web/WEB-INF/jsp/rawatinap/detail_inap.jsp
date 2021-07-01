@@ -1,3 +1,11 @@
+<%
+    String resp = request.getParameter("resp");
+    String name = request.getParameter("nama-pasien");
+    String id = request.getParameter("id");
+    JSONObject detailPasien = AdmissionManagement.cariPrePasien(id);
+    String idTemp[] = detailPasien.getString("_id").split("pasien:");  
+%>
+
 <h2> Detail Pasien</h2>
 <div class="o-flex-grid w-100">
     <div class=" o-flex-grid--item">
@@ -14,36 +22,28 @@
             <td> Budi </td>
         </tr>
         <tr>
-            <th style="text-align:right" > Tanggal Pertama Masul : </th>
+            <th style="text-align:right" > Tanggal Lahir : </th>
+            <td> 21/Jan/2021 </td>
+        </tr>
+        <tr>
+            <th style="text-align:right" > Tanggal Masuk : </th>
             <td> 12/31/2021 </td>
         </tr>
         <tr>
-            <th style="text-align:right" > Tanggal Terakhir Check In : </th>
-            <td> 12/31/9999 </td>
+            <th style="text-align:right" > Tanggal Mulai Inap : </th>
+            <td> 12/31/2029 </td>
         </tr>
         <tr>
-            <th style="text-align:right" > Usia : </th>
-            <td> 21 </td>
+            <th style="text-align:right" > Dokter Penanggung Jawab : </th>
+            <td> Dr. Syaph </td>
         </tr>
         <tr>
-            <th style="text-align:right" > Riwayat Diagnosis : </th>
-            <td> Demam </td>
+            <th style="text-align:right" > Jenis Kamar : </th>
+            <td> VIP </td>
         </tr>
         <tr>
-            <th style="text-align:right" > Riwayat Penanganan : </th>
-            <td> Disuntik </td>
-        </tr>
-        <tr>
-            <th style="text-align:right" > Status : </th>
-            <td> Aslinya mah udah sembuh </td>
-        </tr>
-        <tr>
-            <th style="text-align:right" > Valid hingga : </th>
-            <td> 12/31/9999 </td>
-        </tr>
-        <tr>
-            <th style="text-align:right" > Status Asuransi : </th>
-            <td> Yah dah abis ini mah </td>
+            <th style="text-align:right" > No Kamar : </th>
+            <td> 02 </td>
         </tr>
     </tbody>
 </table>
