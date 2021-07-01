@@ -57,7 +57,7 @@ Dukungan database dalam project ini menggunakan apache couchdb. Berikut adalah p
     4. Adms : Membuat Design _design/`adms` dengan index name `all` dan Map Function berikut:
     ``` 
     function (doc) {
-        if(doc.Adms=="true" && doc._id.startsWith("pasien:")){
+        if(doc.adms=="true" && doc._id.startsWith("pasien:")){
             emit(doc.nama, doc.nik);
         }
     }
