@@ -200,13 +200,13 @@ if(isLogin == null || !isLogin.equals("1")){
 			<% }else if( act.equals("delete-rekammedis")){ %>
 			<jsp:include page="WEB-INF/jsp/rekammedis/delete_rekamMedis.jsp"/>
 			<% }else if( act.equals("kamar-operasi")){ %>
-			<jsp:include page="WEB-INF/jsp/kamaroperasi/main_adms.jsp"/>
+			<jsp:include page="WEB-INF/jsp/kamaroperasi/main_operasi.jsp"/>
 			<% }else if( act.equals("detail-kamar-operasi")){ %>
-			<jsp:include page="WEB-INF/jsp/kamaroperasi/detail_adms.jsp"/>
+			<jsp:include page="WEB-INF/jsp/kamaroperasi/detail_operasi.jsp"/>
 			<% }else if( act.equals("form-kamar-operasi")){ %>
-			<jsp:include page="WEB-INF/jsp/kamaroperasi/form_adms.jsp"/>
+			<jsp:include page="WEB-INF/jsp/kamaroperasi/form_operasi.jsp"/>
 			<% }else if( act.equals("edit-kamar-operasi")){ %>
-			<jsp:include page="WEB-INF/jsp/kamaroperasi/edit_adms.jsp"/>
+			<jsp:include page="WEB-INF/jsp/kamaroperasi/edit_operasi.jsp"/>
 			<% } %>
 			</div>
 		</div>
