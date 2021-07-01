@@ -46,8 +46,27 @@ Dukungan database dalam project ini menggunakan apache couchdb. Berikut adalah p
       }
      } 
     ````
+     3. PreAdms : Membuat Design _design/`preAdms` dengan index name `all` dan Map Function berikut:
+    ``` 
+    function (doc) {
+        if(doc.preAdms,"true" && doc._id.startsWith("pasien:")){
+            emit(doc.nama, doc.nik);
+        }
+    }
+    ````
+    4. Adms : Membuat Design _design/`adms` dengan index name `all` dan Map Function berikut:
+    ``` 
+    function (doc) {
+        if(doc.adms,"true" && doc._id.startsWith("pasien:")){
+            emit(doc.nama, doc.nik);
+        }
+    }
+    ````
+    
     
     ## Konfigurasi Website
     Dukungan bahasa pengembangan menggunakan Java dan JSP sebagai output keluaran halaman. Sebelum memulai anda harus memastikan `apache-tomcat` sudah running. 
     
     Compile dengan menggunakan perintah `ant gas` untuk melakukan deployment ke localhost.
+    
+    Url website : `localhost:<port-anda>/user_management/`
