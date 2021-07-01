@@ -1,3 +1,20 @@
+<%@ page import="java.util.*" %>
+<%@ page import="rsgm_unair.admission_management.*" %>
+<%@ page import="rsgm_unair.pasien_management.*" %>
+<%@ page import="rsgm_unair.user_management.*" %>
+<%@ page import="rsgm_unair.shared.*" %>
+<%@ page import="org.json.*" %>
+
+<%
+
+    
+    Paging pagePreAdms = AdmissionManagement.getPasien();
+    
+    String idTemp = null;
+    String [] idPasien = new String[2];
+%>
+
+
 <div class="o-flex-grid w-100">
     <div class="o-flex-grid--item">
     <a href="">
@@ -11,6 +28,7 @@
     </div>
 </div>
 <h2> Daftar Pre-Admission </h2>
+
 <div style="margin-top:-2%" class="o-flex-grid w-100">
     <div class="o-flex-grid--item">
 		<table class="pure-table">
@@ -25,48 +43,27 @@
                 </tr>
             </thead>
             <tbody>
-                <tr class="pure-table-odd" >
-                    <td >1</td>
-                    <td>Tn. Udin</td>
-                    <td>AA15236</td>
-                    <td><center>Laki-Laki</center></td>
-                    <td><center>12 - 06 - 2021</center></td>
+                <% for(int i = 0; i < pagePreAdms.getResultList().size(); i++) { %>
+                <%
+                    idTemp = pagePreAdms.getResultList().get(i).getString("_id");
+                    idPasien = idTemp.split("pasien:") ;
+                    
+                %>
+                <tr class="pure-table<%if((i+1) %2 == 1){out.print("-odd");}%>" >
+                    <td><%=i+1  %></td>
+                    <td><%=pagePreAdms.getResultList().get(i).getString("nama")%></td>
+                    <td><%=idPasien[1]%></td>
+                    <td><center><%=pagePreAdms.getResultList().get(i).getString("jk")%></center></td>
+                    <td><center><%=pagePreAdms.getResultList().get(i).getString("tglDatang")%></center></td>
                     <td>
-                            <a style="font-size:70% ; color:white ; background-color:#28527a" class=" pure-button" href="?act=detail-pre&id=1"><b>Detail</b></a>
+                            <a style="font-size:70% ; color:white ; background-color:#28527a" class=" pure-button" href="?act=detail-pre&id=<%=idPasien[1]%>"><b>Detail</b></a>
                             |
-                            <a style="font-size:70% ;  background-color:#fdca40" class="pure-button" href="?act=edit-pre&id=1"><b><strong>Admisi</strong></b></a>
+                            <a style="font-size:70% ;  background-color:#fdca40" class="pure-button" href="?act=edit-pre&id=<%=idPasien[1]%>"><b><strong>Admisi</strong></b></a>
                             |
-                            <a style="font-size:70% ; color:white ; background-color:#cf0000" class=" pure-button" href="?act=delete-pasien&id=1"><b>Delete</b></a>
+                            <a style="font-size:70% ; color:white ; background-color:#cf0000" class=" pure-button" href="?act=delete-pasien&id=<%=idPasien[1]%>"><b>Delete</b></a>
                     </td>
                 </tr>
-                <tr class="pure-table" >
-                    <td >1</td>
-                    <td>Tn. Udin</td>
-                    <td>AA15236</td>
-                    <td><center>Laki-Laki</center></td>
-                    <td><center>12 - 06 - 2021</center></td>
-                    <td>
-                            <a style="font-size:70% ; color:white ; background-color:#28527a" class=" pure-button" href="?act=detail-pre&id=1"><b>Detail</b></a>
-                            |
-                            <a style="font-size:70% ;  background-color:#fdca40" class="pure-button" href="?act=edit-pre&id=1"><b><strong>Admisi</strong></b></a>
-                            |
-                            <a style="font-size:70% ; color:white ; background-color:#cf0000" class=" pure-button" href="?act=delete-pasien&id=1"><b>delete</b></a>
-                    </td>
-                </tr>
-                <tr class="pure-table-odd" >
-                    <td >1</td>
-                    <td>Tn. Udin</td>
-                    <td>AA15236</td>
-                    <td><center>Laki-Laki</center></td>
-                    <td><center>12 - 06 - 2021</center></td>
-                    <td>
-                            <a style="font-size:70% ; color:white ; background-color:#28527a" class=" pure-button" href="?act=detail-pre&id=1"><b>Detail</b></a>
-                            |
-                            <a style="font-size:70% ;  background-color:#fdca40" class="pure-button" href="?act=edit-pre&id=1"><b><strong>Admisi</strong></b></a>
-                            |
-                            <a style="font-size:70% ; color:white ; background-color:#cf0000" class=" pure-button" href="?act=delete-pasien&id=1"><b>delete</b></a>
-                    </td>
-                </tr>
+                <%}%>
             </tbody>
         
         </table>

@@ -28,45 +28,28 @@
     </thead>
     <tbody>
         <tr>
-            <th style="text-align:right" class="pure-u-*"  >Nama Dokter :</th>
-            <td class="" ><%=(pasien.getString("dokter"))%></td>
-        </tr>
-        <tr>
             <th style="text-align:right" class="pure-u-*"  >Nama Pasien :</th>
-            <td class="" ><b><%=(pasien.getString("title")+" "+pasien.getString("nama"))%><b></td>
+            <td class="" ><b><%=(pasien.getString("nama"))%><b></td>
         </tr>
         <tr>
             <th style="text-align:right" class="pure-u-*"  >Jenis Kelamin :</th>
             <td class="" ><%=(pasien.getString("jk"))%></td>
         </tr>
-        <tr>
-            <th style="text-align:right" class="pure-u-*"  >Umur Pasien :</th>
-            <td class="" ><%=(pasien.getString("umur"))%> Tahun</td>
-        </tr>
-        <tr>
-            <th style="text-align:right" class="pure-u-*"  >Tanggal Masuk :</th>
-            <td class="" ><%=(pasien.getString("tgl-masuk"))%></td>
-        </tr>
+
         <tr>
             <th style="text-align:right" class="pure-u-*"  >Keluhan Pasien:</th>
             <td class="" ><%=(pasien.getString("keluhan"))%></td>
         </tr>
-        <tr>
+        <%-- <tr>
             <th style="text-align:right" class="pure-u-*"  >Diagnosa Medis :</th>
             <td class="" ><%=(pasien.getString("diagnosa"))%></td>
-        </tr>
-        <tr>
-            <th style="text-align:right" class="pure-u-*"  >Informed Consent :</th>
-            <td class="" ><%=(pasien.getString("no-IC"))%></td>
-        </tr>
+        </tr> --%>
+
         <tr>
             <th style="text-align:right" class="pure-u-*"  >Alamat Pasien :</th>
             <td class="" ><%=(pasien.getString("alamat"))%></td>
         </tr>
-        <tr>
-            <th style="text-align:right" class="pure-u-*"  >No HP Pasien :</th>
-            <td class="" ><%=(pasien.getString("hp-pasien"))%></td>
-        </tr>
+
     </tbody>
 
 </table>

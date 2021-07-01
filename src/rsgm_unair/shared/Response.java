@@ -6,7 +6,7 @@ public class Response{
 	public static final int ERROR = -1;
 	
 	private int kode;
-	private String pesan;
+	private String pesan, Id;
 	
 	public void setKode(int a){
 		kode = a;
@@ -22,6 +22,14 @@ public class Response{
 	
 	public String getPesan(){
 		return pesan;
+	}
+
+	public void setID(String a){
+		Id = a;
+	}
+	
+	public String getID(){
+		return Id;
 	}
 
 }

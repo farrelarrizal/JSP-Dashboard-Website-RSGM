@@ -33,6 +33,7 @@
     }
     
     Paging pagePasien = PasienManagement.getPagingPasien(pp);
+    
 
     String idTemp = null;
     String [] idPasien = new String[2];
@@ -67,13 +68,10 @@
     <table class="pure-table">
         <thead>
             <tr>
-                <th>#</th>
+                <th>No</th>
                 <th>Nama Pasien</th>
                 <th>Jenis Kelamin</th>
-                <th>Umur</th>
-                <th>Tanggal Masuk</th>
                 <th>Keluhan</th>
-                <th>Dokter</th>
                 <th><center>Aksi</center></th>
             </tr>
         </thead>
@@ -88,12 +86,9 @@
             
             <tr class="<%if((i+1) %2 == 1){out.print("pure-table-odd");}%>" >
                 <td ><%=(pagePasien.getResultFrom()+i )%></td>
-                <td><%=pagePasien.getResultList().get(i).getString("title")+" "+pagePasien.getResultList().get(i).getString("nama")%></td>
+                <td><%=pagePasien.getResultList().get(i).getString("nama")%></td>
                 <td><%=pagePasien.getResultList().get(i).getString("jk") %></td>
-                <td><center><%=pagePasien.getResultList().get(i).getString("umur") %></center></td>
-                <td><center><%=pagePasien.getResultList().get(i).getString("tgl-masuk") %></center></td>
                 <td><%=pagePasien.getResultList().get(i).getString("keluhan") %></td>
-                <td><center><%=pagePasien.getResultList().get(i).getString("dokter") %></center></td>
                 
                 <td>
                         <a style="font-size:70% ; color:white ; background-color:#28527a" class=" pure-button" href="?act=detail-pasien&id=<%=idPasien[1]%>"><b>Detail</b></a>

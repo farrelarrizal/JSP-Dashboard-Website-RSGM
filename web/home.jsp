@@ -25,9 +25,7 @@ if(isLogin == null || !isLogin.equals("1")){
 		<link rel="stylesheet" href="css/pure-min.css"/>
 		<link rel="stylesheet" href="css/style-card.css"/>
 		<link rel="stylesheet" href="css/style-grid.css"/>
-		<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
-		<script src="//cdn.jsdelivr.net/npm/sweetalert2@11"></script>
-		<script src="sweetalert2.min.js"></script>
+
 
 		<!-- Date Picker-->
 		<style type="text/css">
