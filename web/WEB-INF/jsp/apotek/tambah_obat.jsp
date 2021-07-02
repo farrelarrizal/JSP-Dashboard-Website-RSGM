@@ -5,41 +5,34 @@
 <%@ page import="org.json.*" %>
 <%@ page import="java.util.*" %>
 <%
-    String resp = request.getParameter("resp");
-    String name = request.getParameter("nama-pasien");
-    String id = request.getParameter("id");
-    JSONObject detailPasien = TambahObat.searchPasien(id);
-    String idTemp[] = detailPasien.getString("_id").split("pasien:");  
+
+    
 
     String action = null;
-    action = request.getParameter("update");
-    
+    action = request.getParameter("action");
+    String id = request.getParameter("id");
+
     Response resp = null;
-    JSONObject pasien = null
+    JSONObject detailPasien = TambahObat.searchPasien(id);
+    String idTemp[] = detailPasien.getString("_id").split("pasien:");  
+    out.print(detailPasien);
+    if(action != null && action.equals("addAptk")){
 
- if(action != null && action.equals("yes")){
-
-        VarTambahObat ep = new VarTambahObat();
-        //ep.setRev(request.getParameter("_rev"));
-        ep.setIdPasien(request.getParameter("idPasien"));
-        ep.setNama(request.getParameter("nama"));
-        ep.setUmur(request.getParameter("umur"));
-        ep.setAlamat(request.getParameter("alamat"));
-        ep.setDokter(request.getParameter("dokter"));
-        ep.setTanggalLahir(request.getParameter("tanggalLahir"));
-        ep.setTanggalMasuk(request.getParameter("tanggalMasuk"));
-        ep.setPerawatan(request.getParameter("perawatan"));
-        ep.setKeluhan(request.getParameter("keluhan"));
-        ep.setStatusRawat(request.getParameter("statusRawat"));
-        ep.setAsuransi(request.getParameter("asuransi"));
-
-
-      resp = ApotekManagement.editObat(ep);
+            Apotek fr = new Apotek();
+            fr.setRev(request.getParameter("_rev"));
+            fr.setIdPasien(request.getParameter("idPasien"));
+            fr.setObat(request.getParameter("obat"));
+            fr.setJumlahObat(request.getParameter("jumlahObat"));
+            fr.setAptk("true");
         
-
-
+        resp = TambahObat.editObat(fr);
+    %>
+            <script>
+                window.location.href="?act=tambah-obat&resp=<%=resp.getKode()%>"
+            </script>
+    <%
+    }
 %>
-
 
 
 <div style="margin-top:2%" class="o-flex-grid w-100 pure-u-1-3">
@@ -60,11 +53,16 @@
                         <td> <%=(detailPasien.getString("nama"))%> </td>
                     </tr>
         </table>
-        <form class="pure-form pure-form-aligned pure-u-1-3" style="margin-top:25px">
+        <form class="pure-form pure-form-aligned pure-u-1-3" style="margin-top:25px" method="post" action="?tambah-obat&id=<%=(idTemp[1])%>">
             <fieldset >
+               <%-- <input type="hidden" name="obat" value="obat" />  --%>
+                <input type="hidden" id="action" name="action" value="addAptk">
+                        <input type="hidden" id="idPasien" name="idPasien" value="<%=(idTemp[1])%>">
+                        <input type="hidden"  name="rev" value="<%=detailPasien.getString("_rev")%>">
                 <div class="pure-control-group">
                     <label for="aligned-name">Daftar Obat:</label>
-                    <input type="text" id="obat" name="obat"  />
+                     <input type="text" id="obat" name="obat"  />
+                 
                 </div>
                 <div class="pure-control-group">
                     <label for="aligned-password">Kuantitas:</label>
@@ -86,8 +84,8 @@
             <tbody>
                 <tr>
                     <td>1</td>
-                    <td>Honda</td>
-                    <td>Accord</td>
+                    <td></td>
+                    <td></td>
                 </tr>
                 <tr>
                     <td>2</td>
