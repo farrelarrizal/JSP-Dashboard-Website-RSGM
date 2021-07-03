@@ -101,9 +101,12 @@
             <%}%>
             </tbody>
         </table>
+        <%-- <form class="pure-form pure-form-aligned pure-u-1-3" style="margin-top:25px" method="post" action="?act=tambah-obat&id=<%=(idTemp[1])%>">
+            <fieldset > --%>
         <div style="margin-top:25px; font-size:1.2em">
-                    <a class="pure-button pure-button-primary" href="?act=tampil-resep" style="margin-right:5px;" >Tampilkan Resep</a>
+                    <a class="pure-button pure-button-primary" href="?act=tampil-resep&id=<%=(idTemp[1])%>" style="margin-right:5px;" >Tampilkan Resep</a>
                     </div>
-
+            <%-- </fieldset>
+        </form> --%>
 	</div>
 </div>
