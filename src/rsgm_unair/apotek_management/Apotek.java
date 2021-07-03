@@ -13,6 +13,9 @@ import lombok.ToString;
     private String jumlahObat;
     private String generateResep;
     private String aptk;
+
+    private String jumlahBeli;
+    private String rsp;
     
     private String rev;
     

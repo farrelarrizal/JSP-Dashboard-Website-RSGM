@@ -9,13 +9,32 @@
  String action = null;
     action = request.getParameter("action");
     Response resp = null;
-     String id = request.getParameter("id");
+    String id = request.getParameter("id");
 
     JSONObject detailPasien = TambahObat.searchPasien(id);
     String idTemp[] = detailPasien.getString("_id").split("pasien:");  
     out.print(detailPasien);
 
+ if(action != null && action.equals("addRsp")){
+     int j =1;
+     while(detailPasien.has("obat"+j)){
 
+            Apotek fr = new Apotek();
+            fr.setRev(request.getParameter("rev"));
+            fr.setIdPasien(request.getParameter("idPasien"));
+            fr.setJumlahBeli(request.getParameter("jumlahBeli"+j));
+            fr.setRsp("true");
+        
+        resp = TambahObat.editResep(fr);
+    j++;
+    }
+    %>
+            <script>
+                window.location.href="?act=tampil-resep&id=<%=resp.getID()%>&resp=<%=resp.getKode()%>"
+            </script>
+    <%
+ }
+   
 %>
 
 
@@ -39,8 +58,12 @@
                     </tr>
         </table>
        
-            <form class="pure-form pure-form-aligned" style="margin-top:25px">
+            <form class="pure-form pure-form-aligned" style="margin-top:25px" method="post" action="?act=tampil-resep&id=<%=(idTemp[1])%>">
                         <fieldset >
+                        <input type="hidden" id="action" name="action" value="addRsp">
+                        <input type="hidden" id="idPasien" name="idPasien" value="<%=(idTemp[1])%>">
+                        <%-- <input type="hidden" id="id" name="idPasien" value="<%=(idTemp[1])%>"> --%>
+                        <input type="hidden"  name="rev" value="<%=detailPasien.getString("_rev")%>">
                                 <div style="margin-top:25px; font-size:1.2em">
                                  <table class="pure-table pure-table-bordered" style="margin-top : 30px">
             <thead>
@@ -64,17 +87,20 @@
                     <td><%=(detailPasien.getString("obat"+i))%> </td>
                     <td><%=(detailPasien.getString("jumlahObat"+i))%></td>
                     <td>
-                        <input type="number" id="aligned-name" name="id" size="10" />
+                        <input type="number" id="jumlahBeli<%=(i)%>" name="jumlahBeli<%=(i)%>"  />
                     </td>
                     <td style="text-align:center">
                     <label for="default-remember">
+                       <%-- <button class="pure-button" type="submit" style="margin-right:5px;">Berikan Resep</button> --%>
                         <input type="checkbox" id="generate" /> </label>
                     </td>
                 </tr>
                     <%}%>
             </tbody>
         </table>
-                                <a class="pure-button pure-button-primary" href="?act=cetak-resep" style="margin-top:25px;" >Berikan Resep</a>
+                    <div style="margin-top:25px; font-size:1.2em">
+                    <button class="pure-button" type="submit" style="margin-right:5px;">Berikan Resep</button>
+                    </div>
                                 </div>
                         </fieldset>
                     </form>

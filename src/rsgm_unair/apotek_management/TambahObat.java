@@ -56,6 +56,48 @@ public class TambahObat {
         return message;
     }
 
+    public static Response editResep(Apotek frp) throws Exception {
+        Response message = new Response();
+        message.setKode(Response.ERROR);
+        message.setPesan("Ada Error");
+
+        if(frp.getIdPasien() != null && !frp.getIdPasien().trim().equals("")){
+                if(frp.getJumlahBeli() != null && !frp.getJumlahBeli().trim().equals("")){
+                        
+                                                    CouchdbClient pasienClient = CouchHelper.createClient();
+                                                    
+                                                    String id = "pasien:"+ frp.getIdPasien();
+                                                    JSONObject pasien = pasienClient.getDoc(id);
+
+                                                    // buat update
+                                                    if(frp.getRev() != null){
+                                                        pasien.put("_rev",frp.getRev());
+                                                        for(int i=1 ;i<6;i++){
+                                                            if(!pasien.has("jumlahBeli"+i)){
+                                                                pasien.put("jumlahBeli"+i,frp.getJumlahBeli());
+                                                                break;
+                                                            }
+                                                        }
+                                                        pasien.put("rsp",frp.getRsp());
+
+                                                    }
+
+                                                    pasienClient.setDoc(id, pasien);
+
+                                                    message.setKode(Response.OK);
+                                                    message.setPesan("Data berhasil di tambahkan cuk!");
+                                                    message.setID(frp.getIdPasien());
+                                                    pasienClient = null;
+                                                
+                                            }
+                                    }
+
+
+
+        return message;
+    }
+
+
     public static JSONObject searchPasien(String id) throws Exception{
         String docId = "pasien:"+id;
 

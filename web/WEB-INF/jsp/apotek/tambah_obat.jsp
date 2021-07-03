@@ -8,7 +8,7 @@
     String action = null;
     action = request.getParameter("action");
     Response resp = null;
-     String id = request.getParameter("id");
+    String id = request.getParameter("id");
 
     JSONObject detailPasien = TambahObat.searchPasien(id);
     String idTemp[] = detailPasien.getString("_id").split("pasien:");  
