@@ -6,32 +6,32 @@
 <%@ page import="java.util.*" %>
 <%
 
-    
 
     String action = null;
     action = request.getParameter("action");
-    String id = request.getParameter("id");
-
     Response resp = null;
-    JSONObject detailPasien = TambahObat.searchPasien(id);
-    String idTemp[] = detailPasien.getString("_id").split("pasien:");  
-    out.print(detailPasien);
-    if(action != null && action.equals("addAptk")){
+      if(action != null && action.equals("addAptk")){
 
             Apotek fr = new Apotek();
-            fr.setRev(request.getParameter("_rev"));
+            fr.setRev(request.getParameter("rev"));
             fr.setIdPasien(request.getParameter("idPasien"));
             fr.setObat(request.getParameter("obat"));
             fr.setJumlahObat(request.getParameter("jumlahObat"));
-            fr.setAptk("true");
+            //fr.setAptk("true");
         
         resp = TambahObat.editObat(fr);
     %>
             <script>
-                window.location.href="?act=tambah-obat&resp=<%=resp.getKode()%>"
+                window.location.href="?act=tambah-obat&id=<%=resp.getID()%>&resp=<%=resp.getKode()%>"
             </script>
     <%
     }
+    String id = request.getParameter("id");
+
+    JSONObject detailPasien = TambahObat.searchPasien(id);
+    String idTemp[] = detailPasien.getString("_id").split("pasien:");  
+    out.print(detailPasien);
+  
 %>
 
 
@@ -53,12 +53,14 @@
                         <td> <%=(detailPasien.getString("nama"))%> </td>
                     </tr>
         </table>
-        <form class="pure-form pure-form-aligned pure-u-1-3" style="margin-top:25px" method="post" action="?tambah-obat&id=<%=(idTemp[1])%>">
+        <form class="pure-form pure-form-aligned pure-u-1-3" style="margin-top:25px" method="post" action="?act=tambah-obat&id=<%=(idTemp[1])%>">
             <fieldset >
                <%-- <input type="hidden" name="obat" value="obat" />  --%>
-                <input type="hidden" id="action" name="action" value="addAptk">
+                        <input type="hidden" id="action" name="action" value="addAptk">
                         <input type="hidden" id="idPasien" name="idPasien" value="<%=(idTemp[1])%>">
+                        <%-- <input type="hidden" id="id" name="idPasien" value="<%=(idTemp[1])%>"> --%>
                         <input type="hidden"  name="rev" value="<%=detailPasien.getString("_rev")%>">
+                        <%-- <input type="hidden"  name="act" value="tambah-obat"> --%>
                 <div class="pure-control-group">
                     <label for="aligned-name">Daftar Obat:</label>
                      <input type="text" id="obat" name="obat"  />
