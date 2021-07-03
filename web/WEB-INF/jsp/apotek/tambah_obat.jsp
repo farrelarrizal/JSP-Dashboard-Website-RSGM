@@ -5,11 +5,15 @@
 <%@ page import="org.json.*" %>
 <%@ page import="java.util.*" %>
 <%
-
-
     String action = null;
     action = request.getParameter("action");
     Response resp = null;
+     String id = request.getParameter("id");
+
+    JSONObject detailPasien = TambahObat.searchPasien(id);
+    String idTemp[] = detailPasien.getString("_id").split("pasien:");  
+    out.print(detailPasien);
+  
       if(action != null && action.equals("addAptk")){
 
             Apotek fr = new Apotek();
@@ -17,7 +21,7 @@
             fr.setIdPasien(request.getParameter("idPasien"));
             fr.setObat(request.getParameter("obat"));
             fr.setJumlahObat(request.getParameter("jumlahObat"));
-            //fr.setAptk("true");
+            fr.setAptk("true");
         
         resp = TambahObat.editObat(fr);
     %>
@@ -26,12 +30,7 @@
             </script>
     <%
     }
-    String id = request.getParameter("id");
-
-    JSONObject detailPasien = TambahObat.searchPasien(id);
-    String idTemp[] = detailPasien.getString("_id").split("pasien:");  
-    out.print(detailPasien);
-  
+   
 %>
 
 
@@ -76,6 +75,7 @@
             </fieldset>
         </form>
         <table class="pure-table pure-table-bordered">
+        
             <thead>
                 <tr>
                     <th>No</th>
@@ -84,21 +84,21 @@
                 </tr>
             </thead>
             <tbody>
+            <%-- <% for(int i=1;i<6;i++){
+            %> --%>
+    <% 
+    for(int i=1; i<6;i++){
+        if(!detailPasien.has("obat"+i)){
+            break;
+        }
+    %>
+            
                 <tr>
-                    <td>1</td>
-                    <td></td>
-                    <td></td>
+                    <td><%=(i)%></td>
+                    <td><%=(detailPasien.getString("obat"+i))%> </td>
+                    <td><%=(detailPasien.getString("jumlahObat"+i))%></td>
                 </tr>
-                <tr>
-                    <td>2</td>
-                    <td>Toyota</td>
-                    <td>Camry</td>
-                </tr>
-                <tr>
-                    <td>3</td>
-                    <td>Hyundai</td>
-                    <td>Elantra</td>
-                </tr>
+            <%}%>
             </tbody>
         </table>
         <div style="margin-top:25px; font-size:1.2em">

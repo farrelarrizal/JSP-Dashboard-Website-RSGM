@@ -19,7 +19,6 @@ public class TambahObat {
         message.setPesan("Ada Error");
 
         if(frp.getIdPasien() != null && !frp.getIdPasien().trim().equals("")){
-            if(frp.getNama() != null && !frp.getNama().trim().equals("")){
                 if(frp.getObat() != null && !frp.getObat().trim().equals("")){
                     if(frp.getJumlahObat() != null && !frp.getJumlahObat().trim().equals("")){
                         
@@ -31,9 +30,16 @@ public class TambahObat {
                                                     // buat update
                                                     if(frp.getRev() != null){
                                                         pasien.put("_rev",frp.getRev());
+                                                        for(int i=1 ;i<6;i++){
+                                                            if(!pasien.has("obat"+i)){
+                                                                pasien.put("obat"+i,frp.getObat());
+                                                                pasien.put("jumlahObat"+i,frp.getJumlahObat());
+                                                                break;
+                                                            }
+                                                        }
+                                                        pasien.put("aptk",frp.getAptk());
+
                                                     }
-                                                    pasien.put("obat",frp.getObat());
-                                                    pasien.put("jumlahObat",frp.getJumlahObat());
 
                                                     pasienClient.setDoc(id, pasien);
 
@@ -43,7 +49,6 @@ public class TambahObat {
                                                     pasienClient = null;
                                                 }
                                             }
-                                        }
                                     }
 
 
