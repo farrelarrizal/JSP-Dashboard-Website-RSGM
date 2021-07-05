@@ -11,7 +11,7 @@ import lombok.ToString;
     private String tglLahir;
     private String tglDatang;
     private String tglIn;
-    private String dokter;
+    private String dokterpj;
     private String jKamar;
     private String noKamar;
 
