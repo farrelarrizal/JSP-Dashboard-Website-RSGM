@@ -9,7 +9,7 @@
 
     
     Paging pageAdms = AdmissionManagement.getAdmsPasien();
-    
+    out.print(pageAdms);
     String idTemp = null;
     String [] idPasien = new String[2];
 

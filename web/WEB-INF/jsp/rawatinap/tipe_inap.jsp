@@ -1,3 +1,17 @@
+<%@ page import="java.util.*" %>
+<%@ page import="rsgm_unair.admission_management.*" %>
+<%@ page import="rsgm_unair.pasien_management.*" %>
+<%@ page import="rsgm_unair.user_management.*" %>
+<%@ page import="rsgm_unair.inap_management.*" %>
+<%@ page import="rsgm_unair.shared.*" %>
+<%@ page import="org.json.*" %>
+<%
+    String id = request.getParameter("id");
+    JSONObject detailKamar = InapManagement.cariKamar(id);
+    String idTemp[] = detailKamar.getString("_id").split("kamar:");  
+    out.print(detailKamar);
+%>
+
 <h2> Daftar Kamar </h2>
 <div style="margin-top:-2%" class="o-flex-grid w-100">
     <div class="o-flex-grid--item">
@@ -14,19 +28,19 @@
             <tbody>
                 <tr class="pure-table-odd" >
                     <td >1</td>
-                    <td>VIP01</td>
-                    <td>30</td>
-                    <td><center>5</center></td>
+                    <td><%=idTemp[1].toUpperCase()%> 01</td>
+                    <td><center><%=(detailKamar.getInt( "kapasitas"))%></center></td>
+                    <td><center><%=(detailKamar.getInt(idTemp[1]+"1"))%></center></td>
                     <td>
                             <a style="font-size:70% ; color:white ; background-color:#28527a" class=" pure-button" href="?act=kamar-inap&id=1"><b>Detail Kamar</b></a>
                             <a style="font-size:70% ;  background-color:#fdca40" class="pure-button" href="?act=tambah-inap&id=1"><b><strong>Tambah Pasien</strong></b></a>
                     </td>
                 </tr>
                 <tr class="pure-table-odd" >
-                    <td >2</td>
-                    <td>VIP02</td>
-                    <td>120</td>
-                    <td><center>3</center></td>
+                    <td>2</td>
+                    <td><%=idTemp[1].toUpperCase()%> 02</td>
+                    <td><center><%=(detailKamar.getInt("kapasitas"))%></center></td>
+                    <td><center><%=(detailKamar.getInt(idTemp[1]+"2"))%></center></td>
                     <td>
                             <a style="font-size:70% ; color:white ; background-color:#28527a" class=" pure-button" href="?act=kamar-inap&id=1"><b>Detail Kamar</b></a>
                             <a style="font-size:70% ;  background-color:#fdca40" class="pure-button" href="?act=tambah-inap&id=1"><b><strong>Tambah Pasien</strong></b></a>
@@ -34,9 +48,29 @@
                 </tr>
                 <tr class="pure-table-odd" >
                     <td >3</td>
-                    <td>VIP03</td>
-                    <td>100</td>
-                    <td><center>5</center></td>
+                    <td><%=idTemp[1].toUpperCase()%> 03</td>
+                    <td><center><%=(detailKamar.getInt("kapasitas"))%></center></td>
+                    <td><center><%=(detailKamar.getInt(idTemp[1]+"3"))%></center></td>
+                    <td>
+                            <a style="font-size:70% ; color:white ; background-color:#28527a" class=" pure-button" href="?act=kamar-inap&id=1"><b>Detail Kamar</b></a>
+                            <a style="font-size:70% ;  background-color:#fdca40" class="pure-button" href="?act=tambah-inap&id=1"><b><strong>Tambah Pasien</strong></b></a>
+                    </td>
+                </tr>
+                <tr class="pure-table-odd" >
+                    <td >4</td>
+                    <td><%=idTemp[1].toUpperCase()%> 04</td>
+                    <td><center><%=(detailKamar.getInt("kapasitas"))%></center></td>
+                    <td><center><%=(detailKamar.getInt(idTemp[1]+"4"))%></center></td>
+                    <td>
+                            <a style="font-size:70% ; color:white ; background-color:#28527a" class=" pure-button" href="?act=kamar-inap&id=1"><b>Detail Kamar</b></a>
+                            <a style="font-size:70% ;  background-color:#fdca40" class="pure-button" href="?act=tambah-inap&id=1"><b><strong>Tambah Pasien</strong></b></a>
+                    </td>
+                </tr>
+                <tr class="pure-table-odd" >
+                    <td>5</td>
+                    <td><%=idTemp[1].toUpperCase()%> 05</td>
+                    <td><center><%=(detailKamar.getInt("kapasitas"))%></center></td>
+                    <td><center><%=(detailKamar.getInt(idTemp[1]+"5"))%></center></td>
                     <td>
                             <a style="font-size:70% ; color:white ; background-color:#28527a" class=" pure-button" href="?act=kamar-inap&id=1"><b>Detail Kamar</b></a>
                             <a style="font-size:70% ;  background-color:#fdca40" class="pure-button" href="?act=tambah-inap&id=1"><b><strong>Tambah Pasien</strong></b></a>

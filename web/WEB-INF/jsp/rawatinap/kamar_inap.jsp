@@ -1,6 +1,6 @@
-<h2> Detail Kamar </h2>
 <div style="margin-top:-2%" class="o-flex-grid w-100">
     <div class="o-flex-grid--item">
+<h2> Detail Kamar </h2>
 		<table class="pure-table">
             <thead>
                 <tr>
