@@ -32,14 +32,12 @@
         resp = AdmissionManagement.managePasien(fr);
 
     %>
-            <script>
+            <script> 
                 window.location.href="?act=detail-pre&id=<%=idTemp[1]%>&resp=<%=resp.getKode()%>"
             </script>
     <%
     }
 %>
-
-    <p><%=detailPasien %></p>
                 <h2>Edit Formulir Pre Admission Pasien</h2>
 
                 <form class="pure-form pure-form-aligned" method="post" action="?act=edit-pre&id=<%=(idTemp[1])%>">

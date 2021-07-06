@@ -6,7 +6,7 @@
 <%@ page import="org.json.*" %>
 
 <%
-
+    
     
     Paging pagePreAdms = AdmissionManagement.getPasien();
     
@@ -48,9 +48,9 @@
                     <td><center><%=pagePreAdms.getResultList().get(i).getString("jk")%></center></td>
                     <td><center><%=pagePreAdms.getResultList().get(i).getString("tglDatang")%></center></td>
                     <td>
-                            <a style="font-size:70% ; color:white ; background-color:#28527a" class=" pure-button" href="?act=detail-adms&id=<%=idPasien[1]%>"><b>Detail</b></a>
+                            <a style="font-size:70% ; color:white ; background-color:#28527a" class=" pure-button" href="?act=detail-pre&id=<%=idPasien[1]%>"><b>Detail</b></a>
                             |
-                            <a style="font-size:70% ;  background-color:#fdca40" class="pure-button" href="?act=form-adms&id=<%=idPasien[1]%>"><b><strong>Admisi</strong></b></a>
+                            <a style="font-size:70% ;  background-color:#fdca40" class="pure-button" href="?act=form-adms&id=<%=idPasien[1]%>"  ><b><strong>Admisi</strong></b></a>
                             |
                             <a style="font-size:70% ; color:white ; background-color:#cf0000" class=" pure-button" href="?act=delete-pasien&id=<%=idPasien[1]%>"><b>Delete</b></a>
                     </td>

@@ -13,7 +13,6 @@
     String idTemp = null;
     String [] idPasien = new String[2];
 
-    out.print(pageAdms);
 %>
 
 
@@ -46,12 +45,12 @@
                 <tr class="pure-table<%if((i+1) %2 == 1){out.print("-odd");}%>" >
                     <td><%=i+1  %></td>
                     <td><%=pageAdms.getResultList().get(i).getString("nama")%></td>
-                    <td>AA15236</td>
+                    <td><%=idPasien[1]  %></td>
                     <td><center><%=pageAdms.getResultList().get(i).getString("jk")%></center></td>
                     <td><center><%=pageAdms.getResultList().get(i).getString("tglDatang")%></center></td>
-                    <td><center>DHF</center></td>
+                    <td><center><%=pageAdms.getResultList().get(i).getString("diagnosa")%></center></td>
                     <td>
-                            <a style="font-size:70% ; color:white ; background-color:#28527a" class=" pure-button" href="?act=detail-pre&id=1"><b>Detail</b></a>
+                            <a style="font-size:70% ; color:white ; background-color:#28527a" class=" pure-button" href="?act=detail-adms&id=<%=idPasien[1]%>"><b>Detail</b></a> | <a style="font-size:70% ; color:white ; background-color:#28527a" class=" pure-button" href="?act=edit-adms&id=<%=idPasien[1]%>"><b>edit</b></a>
                             
                     </td>
                 </tr>

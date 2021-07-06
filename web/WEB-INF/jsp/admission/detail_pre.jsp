@@ -10,6 +10,7 @@
     String id = request.getParameter("id");
     JSONObject detailPasien = AdmissionManagement.cariPrePasien(id);
     String idTemp[] = detailPasien.getString("_id").split("pasien:");  
+    
 %>
 
 <%if(resp != null && resp.equals("0")){%>

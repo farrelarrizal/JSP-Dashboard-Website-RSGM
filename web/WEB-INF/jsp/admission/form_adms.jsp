@@ -18,7 +18,7 @@
     Response resp = null;
     JSONObject detailPasien = AdmissionManagement.cariPrePasien(id);
     String idTemp[] = detailPasien.getString("_id").split("pasien:");  
-    out.print(detailPasien);
+
     if(action != null && action.equals("addAdms")){
 
         FormRegisPre fr = new FormRegisPre();
