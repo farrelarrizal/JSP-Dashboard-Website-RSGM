@@ -133,7 +133,10 @@ if(isLogin == null || !isLogin.equals("1")){
 						</a>
 					</div>
 					<div class="box red o-flex-grid--item">
-						<h1>coming soon...</h1>
+						<a href="./regispre.jsp">
+						<img src="img/health-insurance.png" width="75px"alt="">
+						<h2>Formulir Registrasi Pasien</h2>
+						</a>
 					</div>
 				</div>
 			<%-- </form> --%>
