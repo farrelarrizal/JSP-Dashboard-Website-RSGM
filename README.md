@@ -62,6 +62,15 @@ Dukungan database dalam project ini menggunakan apache couchdb. Berikut adalah p
         }
     }
     ````
+    5. Apotek : Membuat Design _design/`aptk` dengan index name `all` dan Map function berikut
+     ``` 
+    function (doc) {
+        if(doc.aptk=="true" && doc._id.startsWith("pasien:")){
+            emit(doc.nama, doc.nik);
+        }
+    }
+    ````
+    6. 
     
     
     ## Konfigurasi Website
