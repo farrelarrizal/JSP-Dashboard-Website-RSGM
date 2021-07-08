@@ -64,7 +64,7 @@
                         <input type="hidden"  name="rev" value="<%=detailPasien.getString("_rev")%>">
                         <div class="pure-control-group">
                             <label for="klinis">Kondisi Klinis</label>
-                            <input type="text" autocomplete="off" id="klinis" name="klinis" placeholder="masukkan nomer NIK" class="pure-input-1-4" required />
+                            <input type="text" autocomplete="off" id="klinis" name="klinis" placeholder="masukkan kondisi klinis" class="pure-input-1-4" required />
                         </div>
                         <div class="pure-control-group">
                             <label for="tglKonsultasi">Tanggal Konsultasi</label>
