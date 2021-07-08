@@ -54,7 +54,7 @@ public class AdmissionManagement {
                                                     pasienClient.setDoc(id, pasien);
 
                                                     message.setKode(Response.OK);
-                                                    message.setPesan("Data berhasil di tambahkan cuk!");
+                                                    message.setPesan("Data berhasil di tambahkan!");
                                                     message.setID(frp.getIdPasien());
                                                     pasienClient = null;
                                                 }
@@ -89,7 +89,7 @@ public class AdmissionManagement {
             pasienClient.setDoc(id, pasien);
 
             message.setKode(Response.OK);
-            message.setPesan("Data berhasil di tambahkan cuk!");
+            message.setPesan("Data berhasil di tambahkan!");
             message.setID(frp.getIdPasien());
             pasienClient = null;            
         }
