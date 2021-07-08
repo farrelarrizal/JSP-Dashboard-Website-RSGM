@@ -7,10 +7,11 @@ import lombok.ToString;
 
 @Data public class AssignOperasi {
     private String rev;
-    private String IdPasienOperasi;
+    private String idPasien;
     private String nama;
     private String noKamar;
-    private String dokter;
+    private String dokterOperasi;
     private String tglOperasi;
+    private String operasi;
     
 }

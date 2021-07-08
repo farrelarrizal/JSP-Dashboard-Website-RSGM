@@ -18,29 +18,30 @@ public class KamarOperasi {
         message.setKode(Response.ERROR);
         message.setPesan("Error");
 
-        if(ao.getNama() != null && !ao.getNama().trim().equals("")){
+        if(ao.getIdPasien() != null && !ao.getIdPasien().trim().equals("")){
                 if(ao.getNoKamar() != null && !ao.getNoKamar().trim().equals("")){
-                    if(ao.getDokter() != null && !ao.getDokter().trim().equals("")){
+                    if(ao.getDokterOperasi() != null && !ao.getDokterOperasi().trim().equals("")){
                         if(ao.getTglOperasi() != null && !ao.getTglOperasi().trim().equals("")){
 
                                                     CouchdbClient pasienClient = CouchHelper.createClient();
                                                     
-                                                    String id = "operasi:"+ ao.getIdPasienOperasi();
-                                                    JSONObject kamarOp = pasienClient.getDoc(id);
+                                                    String id = "pasien:"+ ao.getIdPasien();
+                                                    JSONObject pasien = pasienClient.getDoc(id);
 
                                                     // buat update
                                                     if(ao.getRev() != null){
-                                                        kamarOp.put("_rev",ao.getRev());
+                                                        pasien.put("_rev",ao.getRev());
                                                     }
-                                                    kamarOp.put("noKamar",ao.getNoKamar());
-                                                    kamarOp.put("dokter",ao.getDokter());
-                                                    kamarOp.put("tglOperasi",ao.getTglOperasi());
+                                                    pasien.put("noKamar",ao.getNoKamar());
+                                                    pasien.put("dokterOperasi",ao.getDokterOperasi());
+                                                    pasien.put("tglOperasi",ao.getTglOperasi());
+                                                    pasien.put("operasi",ao.getOperasi());
 
-                                                    pasienClient.setDoc(id, kamarOp);
+                                                    pasienClient.setDoc(id, pasien);
 
                                                     message.setKode(Response.OK);
                                                     message.setPesan("Data berhasil di tambahkan");
-                                                    message.setID(ao.getNama());
+                                                    message.setID(ao.getIdPasien());
                                                     pasienClient = null;
                         }
                     }

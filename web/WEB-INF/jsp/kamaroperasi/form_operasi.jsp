@@ -6,51 +6,60 @@
 <%@ page import="java.util.*" %>
 <%
 
-    String uniqueIdGenerator = UUID.randomUUID().toString();
-    String [] uniqueTemp = uniqueIdGenerator.split("-");
-    String uniqueID = uniqueTemp[1].toUpperCase()+uniqueTemp[2].toUpperCase();
-
     String action = null;
     action = request.getParameter("action");
     Response resp = null;
-    
-      if(action != null && action.equals("assignKamar")){
+    String id = request.getParameter("id");
+
+
+    JSONObject cariPasien = KamarOperasi.searchPasien(id);
+    String idTemp[] = cariPasien.getString("_id").split("pasien:");
+
+                
+    if(action != null && action.equals("assignOperasi")){
 
             AssignOperasi ao = new AssignOperasi();
-            ao.setIdPasienOperasi(request.getParameter("idPasienOperasi"));
-            ao.setRev(request.getParameter("rev"));
+            ao.setIdPasien(request.getParameter("idPasien"));
             ao.setNama(request.getParameter("nama"));
+            ao.setRev(request.getParameter("rev"));
             ao.setNoKamar(request.getParameter("noKamar"));
-            ao.setDokter(request.getParameter("dokter"));
+            ao.setDokterOperasi(request.getParameter("dokterOperasi"));
             ao.setTglOperasi(request.getParameter("tglOperasi"));
+            ao.setOperasi("true");
         
         resp = KamarOperasi.assignKamar(ao);
-      }
+    %>
+        <script>
+            window.location.href="?act=form-kamar-operasi&id=<%=resp.getID()%>"
+        </script>
+    <%
+    }
 %>
 
 <h2>Assign Kamar Operasi</h2>
-<%if(action != null && action.equals("assignKamar")){%>
-    <p style="background: <%if(resp.getKode()==0){out.print("#28a745");}else{out.print("#cf0000");}%>;color:white"><b><%=resp.getPesan()%></b></p>
-<%}%>
-<form class="pure-form pure-form-aligned" method="post" action="?act=form-kamar-operasi">
+<form class="pure-form pure-form-aligned" method="post" action="?act=form-kamar-operasi&id=<%=(idTemp[1])%>&assign=OK">
     <fieldset>
-        <input type="hidden" id="idPasienOperasi" name="action" value="assignKamar">
-        <input type="hidden" id="idPasienOperasi" name="idPasienOperasi" value="<% out.print(uniqueID) ; %>">
-        <div class="pure-control-group">
-            <label for="id">Nama Pasien</label>
-            <input  type="text" autocomplete="off" id="nama" name="nama"  placeholder="" class="pure-input-1-4" required />
+        <input type="hidden" id="action" name="action" value="assignOperasi">
+        <div class="pure-control-group ">
+            <label for="idPasien">ID Pasien</label>
+            <input type="text" id="idPasien" name="idPasien" autocomplete="off" readonly class="pure-input-1-4" value="<%=(idTemp[1])%>" />
         </div>
+        <div class="pure-control-group ">
+            <label for="nama">Nama Pasien : </label>
+            <input type="text" id="nama" name="nama" autocomplete="off" readonly class="pure-input-1-4" value="<%=(cariPasien.getString("nama"))%>" />
+        </div>
+        <input type="hidden" name="rev" value="<%=cariPasien.getString("_rev")%>" >
         <div class="pure-control-group ">
             <label for="nokamar">No Kamar Operasi</label>
-            <input type="text" id="nokamar" name="noKamar" autocomplete="off" placeholder="" class="pure-input-1-4" />
+            <input type="text" id="noKamar" name="noKamar" autocomplete="off" placeholder="" class="pure-input-1-4" />
         </div>
         <div class="pure-control-group ">
-            <label for="dokter">Dokter</label>
-            <input type="text" id="dokter" name="dokter" autocomplete="off" placeholder="" class="pure-input-1-4" />
+            <label for="dokter">Dokter Operasi</label>
+            <input type="text" id="dokterOperasi" name="dokterOperasi" autocomplete="off" placeholder="" class="pure-input-1-4" />
         </div>
         <div class="pure-control-group">
             <label for="tgloperasi">Tanggal Operasi</label>
-            <input type="date" id="tgloperasi" name="tglOperasi"  class="pure-input-1-4" required />
+            <input type="date" id="tglOperasi" name="tglOperasi"  class="pure-input-1-4" required />
         </div>
         <button type="submit" style="background: #28a745; color: #fff" class="pure-button">Submit</button>
         <a href="?act=kamar-operasi" style="background:#ffee07; color: rgb(70, 64, 64)" class="pure-button"><b>Kembali</b></a>
