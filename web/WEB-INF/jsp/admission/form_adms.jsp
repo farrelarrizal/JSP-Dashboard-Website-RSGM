@@ -72,19 +72,19 @@
                         </div>
                         <div class="pure-control-group">
                             <label for="tensi">Tensi Pasien : </label>
-                            <input type="text" id="tensi" name="tensi" autocomplete="off" placeholder="masukkan alamat pasien" class="pure-input-1-4" required />
+                            <input type="text" id="tensi" name="tensi" autocomplete="off" placeholder="Tensi dalam satuan mmHg" class="pure-input-1-4" required />
                         </div>
                         <div class="pure-control-group">
                             <label for="pulse">Denyut Jantung Pasien : </label>
-                            <input type="text" id="pulse" name="pulse" autocomplete="off" placeholder="Misalnya: 120/80" class="pure-input-1-4" required />
+                            <input type="text" id="pulse" name="pulse" autocomplete="off" placeholder="Denyut jantung alam satuan denyut per menit (BPM)" class="pure-input-1-4" required />
                         </div>
                         <div class="pure-control-group">
                             <label for="temperature">Temperature Pasien : </label>
-                            <input type="text" id="temperature" name="temperature" autocomplete="off" placeholder="Temperatur satuan derajat celcius" class="pure-input-1-4" required />
+                            <input type="text" id="temperature" name="temperature" autocomplete="off" placeholder="Temperatur dalam satuan derajat celcius" class="pure-input-1-4" required />
                         </div>
                         <div class="pure-control-group">
                             <label for="diagnosa">Diagnosa Awal</label>
-                            <textarea class="pure-input-1-4" autocomplete="off" id="diagnosa" name="diagnosa" placeholder="Masukkan keluhan pasien ..." required></textarea>
+                            <textarea class="pure-input-1-4" autocomplete="off" id="diagnosa" name="diagnosa" placeholder="Masukkan diagnosa awal penyakit pasien ..." required></textarea>
                         </div>
                         <div class="pure-control-group">
                             <label for="alasanDiagnosa">Alasan Diagnosa</label>

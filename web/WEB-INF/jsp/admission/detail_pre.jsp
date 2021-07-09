@@ -74,7 +74,7 @@
 </table>
 
 <div style="margin-top:20px">
-    <a href="?act=admission" class="pure-button pure-button-primary"> <b>< Kembali</b></a> | <a href="?act=edit-pre&id=<%=(idTemp[1])%>" style="background:#fdca40" class="pure-button"><b>edit</b></a>  | <a href="?act=form-adms&id=<%=(idTemp[1])%>" class="pure-button pure-button-primary"> <b>> Admisi</b></a>
+    <a href="?act=admission" class="pure-button pure-button-primary"> <b>< Kembali</b></a> | <a href="?act=edit-pre&id=<%=(idTemp[1])%>" style="background:#fdca40" class="pure-button"><b>Edit</b></a>  | <a href="?act=form-adms&id=<%=(idTemp[1])%>" class="pure-button pure-button-primary"> <b>> Admisi</b></a>
 </div>
 
 </div>
