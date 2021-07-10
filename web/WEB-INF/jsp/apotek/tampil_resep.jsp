@@ -1,3 +1,4 @@
+
 <%@ page import="rsgm_unair.pasien_management.*" %>
 <%@ page import="rsgm_unair.user_management.*" %>
 <%@ page import="rsgm_unair.apotek_management.*" %>
@@ -10,24 +11,30 @@
     action = request.getParameter("action");
     Response resp = null;
     String id = request.getParameter("id");
-
     JSONObject detailPasien = TambahObat.searchPasien(id);
     String idTemp[] = detailPasien.getString("_id").split("pasien:");  
     out.print(detailPasien);
-
  if(action != null && action.equals("addRsp")){
-     int j =1;
-     while(detailPasien.has("obat"+j)){
-
+    
             Apotek fr = new Apotek();
             fr.setRev(request.getParameter("rev"));
             fr.setIdPasien(request.getParameter("idPasien"));
-            fr.setJumlahBeli(request.getParameter("jumlahBeli"+j));
+            fr.setJumlahBeli1(request.getParameter("jumlahBeli1"));
+            fr.setJumlahBeli2(request.getParameter("jumlahBeli2"));
+            fr.setJumlahBeli3(request.getParameter("jumlahBeli3"));
+            fr.setJumlahBeli4(request.getParameter("jumlahBeli4"));
+            fr.setJumlahBeli5(request.getParameter("jumlahBeli5"));
+            fr.setJumlahBeli6(request.getParameter("jumlahBeli6"));
+            fr.setGenerate1(request.getParameter("generate1"));
+            fr.setGenerate2(request.getParameter("generate2"));
+            fr.setGenerate3(request.getParameter("generate3"));
+            fr.setGenerate4(request.getParameter("generate4"));
+            fr.setGenerate5(request.getParameter("generate5"));
+            fr.setGenerate6(request.getParameter("generate16"));
             fr.setRsp("true");
         
         resp = TambahObat.editResep(fr);
-    j++;
-    }
+  
     %>
             <script>
                 window.location.href="?act=tampil-resep&id=<%=resp.getID()%>&resp=<%=resp.getKode()%>"
@@ -87,12 +94,12 @@
                     <td><%=(detailPasien.getString("obat"+i))%> </td>
                     <td><%=(detailPasien.getString("jumlahObat"+i))%></td>
                     <td>
-                        <input type="number" id="jumlahBeli<%=(i)%>" name="jumlahBeli<%=(i)%>"  />
+                        <input type="number"  id="jumlahBeli<%=(i)%>" name="jumlahBeli<%=(i)%>" value = "<%=detailPasien.getString("jumlahBeli"+i)%>" />
                     </td>
                     <td style="text-align:center">
                     <label for="default-remember">
                        <%-- <button class="pure-button" type="submit" style="margin-right:5px;">Berikan Resep</button> --%>
-                        <input type="checkbox" id="generate" /> </label>
+                        <input type="checkbox" id="generate<%=(i)%>" name="generate<%=(i)%>" /> </label>
                     </td>
                 </tr>
                     <%}%>

@@ -62,8 +62,7 @@ public class TambahObat {
         message.setPesan("Ada Error");
 
         if(frp.getIdPasien() != null && !frp.getIdPasien().trim().equals("")){
-                if(frp.getJumlahBeli() != null && !frp.getJumlahBeli().trim().equals("")){
-                        
+                
                                                     CouchdbClient pasienClient = CouchHelper.createClient();
                                                     
                                                     String id = "pasien:"+ frp.getIdPasien();
@@ -72,12 +71,27 @@ public class TambahObat {
                                                     // buat update
                                                     if(frp.getRev() != null){
                                                         pasien.put("_rev",frp.getRev());
-                                                        for(int i=1 ;i<6;i++){
-                                                            if(!pasien.has("jumlahBeli"+i)){
-                                                                pasien.put("jumlahBeli"+i,frp.getJumlahBeli());
-                                                                break;
-                                                            }
-                                                        }
+                                                        // for(int i=1 ;i<8;i++){
+                                                        //     if(!pasien.has("jumlahBeli"+i)){
+                                                        //         pasien.put("jumlahBeli"+i,frp.getJumlahBeli());
+                                                        //      break;
+                                                        //     }
+                                                           
+                                                        // }
+                                                        pasien.put("jumlahBeli1",frp.getJumlahBeli1());
+                                                        pasien.put("jumlahBeli2",frp.getJumlahBeli2());
+                                                        pasien.put("jumlahBeli3",frp.getJumlahBeli3());
+                                                        pasien.put("jumlahBeli4",frp.getJumlahBeli4());
+                                                        pasien.put("jumlahBeli5",frp.getJumlahBeli5());
+                                                        pasien.put("jumlahBeli6",frp.getJumlahBeli6());
+
+                                                        pasien.put("generate1", frp.getGenerate1());
+                                                        pasien.put("generate2", frp.getGenerate2());
+                                                        pasien.put("generate3", frp.getGenerate3());
+                                                        pasien.put("generate4", frp.getGenerate4());
+                                                        pasien.put("generate5", frp.getGenerate5());
+                                                        pasien.put("generate6", frp.getGenerate6());
+
                                                         pasien.put("rsp",frp.getRsp());
 
                                                     }
@@ -85,11 +99,11 @@ public class TambahObat {
                                                     pasienClient.setDoc(id, pasien);
 
                                                     message.setKode(Response.OK);
-                                                    message.setPesan("Data berhasil di tambahkan cuk!");
+                                                    message.setPesan("Data berhasil di tambahkan!");
                                                     message.setID(frp.getIdPasien());
                                                     pasienClient = null;
-                                                
-                                            }
+                 
+                                            
                                     }
 
 
