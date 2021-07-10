@@ -17,7 +17,7 @@
                     <td>Keseleo</td>
                     <td>
                             <a style="font-size:70% ; color:white ; background-color:#28527a" class=" pure-button" href="?act=detail-inap&id=1"><b>Detail</b></a>
-                            <a style="font-size:70% ;  background-color:#fdca40" class="pure-button" href="?act=detail-inap&id=1"><b><strong>Hapus</strong></b></a>
+                            <a style="font-size:70% ;  background-color:#fdca40" class="pure-button" href="?act=remove-inap&id=1"><b><strong>Hapus</strong></b></a>
                     </td>
                 </tr>
                 <tr class="pure-table-odd" >
@@ -26,7 +26,7 @@
                     <td>Gigi berlubang</td>
                     <td>
                             <a style="font-size:70% ; color:white ; background-color:#28527a" class=" pure-button" href="?act=detail-inap&id=1"><b>Detail</b></a>
-                            <a style="font-size:70% ;  background-color:#fdca40" class="pure-button" href="?act=detail-inap&id=1"><b><strong>Hapus</strong></b></a>
+                            <a style="font-size:70% ;  background-color:#fdca40" class="pure-button" href="?act=remove-inap&id=1"><b><strong>Hapus</strong></b></a>
                     </td>
                 </tr>
                 <tr class="pure-table-odd" >
@@ -35,7 +35,7 @@
                     <td>Pingin ngadem</td>
                     <td>
                             <a style="font-size:70% ; color:white ; background-color:#28527a" class=" pure-button" href="?act=detail-inap&id=1"><b>Detail</b></a>
-                            <a style="font-size:70% ;  background-color:#fdca40" class="pure-button" href="?act=detail-inap&id=1"><b><strong>Hapus</strong></b></a>
+                            <a style="font-size:70% ;  background-color:#fdca40" class="pure-button" href="?act=remove-inap&id=1"><b><strong>Hapus</strong></b></a>
                     </td>
                 </tr>
             </tbody>
