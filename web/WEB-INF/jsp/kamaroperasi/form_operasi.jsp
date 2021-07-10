@@ -21,6 +21,8 @@
             AssignOperasi ao = new AssignOperasi();
             ao.setIdPasien(request.getParameter("idPasien"));
             ao.setNama(request.getParameter("nama"));
+            ao.setJk(request.getParameter("jk"));
+            ao.setUmur(request.getParameter("umur"));
             ao.setRev(request.getParameter("rev"));
             ao.setNoKamar(request.getParameter("noKamar"));
             ao.setDokterOperasi(request.getParameter("dokterOperasi"));
@@ -47,6 +49,14 @@
         <div class="pure-control-group ">
             <label for="nama">Nama Pasien : </label>
             <input type="text" id="nama" name="nama" autocomplete="off" readonly class="pure-input-1-4" value="<%=(cariPasien.getString("nama"))%>" />
+        </div>
+        <div class="pure-control-group ">
+            <label for="jk">Jenis Kelamin : </label>
+            <input type="text" id="jk" name="jk" autocomplete="off" readonly class="pure-input-1-4" value="<%=(cariPasien.getString("jk"))%>" />
+        </div>
+        <div class="pure-control-group ">
+            <label for="umur">Umur Pasien : </label>
+            <input type="text" id="umur" name="umur" autocomplete="off" readonly class="pure-input-1-4" value="<%=(cariPasien.getString("umur"))%>" />
         </div>
         <input type="hidden" name="rev" value="<%=cariPasien.getString("_rev")%>" >
         <div class="pure-control-group ">

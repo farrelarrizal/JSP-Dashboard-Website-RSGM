@@ -50,6 +50,35 @@ public class KamarOperasi {
         return message;
     }
 
+    public static  Paging getPasienOperasi() throws Exception{
+        Paging doc = new Paging();
+        
+        CouchdbClient pasienClient = CouchHelper.createClient(); 
+        String parameter = null;
+
+        parameter = "include_docs=true";
+        
+
+        // execute couch db get doc
+        JSONObject resultRawDoc = pasienClient.view("operasi","all",parameter);
+        JSONArray resultDoc = resultRawDoc.getJSONArray("rows");
+        
+        doc.setDebug(parameter);
+        // disimpen di array
+        List<JSONObject> resultArrayDoc = new ArrayList<JSONObject>();
+
+        for (int i = 0; i < resultDoc.length(); i++) {
+            JSONObject objDoc = resultDoc.getJSONObject(i);
+            resultArrayDoc.add(objDoc.getJSONObject("doc"));
+
+        }
+
+        doc.setResultList(resultArrayDoc);
+
+        pasienClient = null;
+        return doc;
+    }
+
     public static JSONObject searchPasien(String id) throws Exception{
         String docId = "pasien:"+id;
 

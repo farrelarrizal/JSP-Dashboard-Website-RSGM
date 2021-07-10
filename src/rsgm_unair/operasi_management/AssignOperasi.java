@@ -9,6 +9,8 @@ import lombok.ToString;
     private String rev;
     private String idPasien;
     private String nama;
+    private String jk;
+    private String umur;
     private String noKamar;
     private String dokterOperasi;
     private String tglOperasi;
