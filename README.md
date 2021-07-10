@@ -70,7 +70,7 @@ Dukungan database dalam project ini menggunakan apache couchdb. Berikut adalah p
         }
     }
     ````
-    6. Apotek : Membuat Design _design/`kamar` dengan index name `all` dan Map function berikut
+    6. Kamar Inap : Membuat Design _design/`kamar` dengan index name `all` dan Map function berikut
     ``` 
     function (doc) {
         if(doc._id.startsWith("kamar:")){
