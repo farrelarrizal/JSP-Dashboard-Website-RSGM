@@ -42,6 +42,7 @@
                     <th>No</th>
                     <th>Nama Obat</th>
                     <th>Kuantitas</th>
+                    <th>Stok dibeli</th>
                 </tr>
             </thead>
             <tbody>
@@ -50,16 +51,19 @@
         if(!detailPasien.has("obat"+i)){
             break;
         }
-        if(=(detailPasien.getString("generate"+i).equals("on"))){
-           
-        
+        if(detailPasien.has("generate"+i)){
+            break;
+        }
     %>
                 <tr>
                     <td><%=(i)%></td>
                     <td><%=(detailPasien.getString("obat"+i))%> </td>
                     <td><%=(detailPasien.getString("jumlahObat"+i))%></td>
+                    <td>
+                       <%=detailPasien.getString("jumlahBeli"+i)%>
+                    </td>
                 </tr>
-                    <%}}%>
+                    <%}%>
             </tbody>
         </table>
 
