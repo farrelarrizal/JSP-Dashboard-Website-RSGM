@@ -78,6 +78,14 @@ Dukungan database dalam project ini menggunakan apache couchdb. Berikut adalah p
         }
     }
     ````    
+    7. Operasi : Membuat Design _design/`operasi` dengan index name `all` dan Map function berikut
+    ``` 
+    function (doc) {
+    if(doc.operasi=="true" && doc._id.startsWith("pasien:")){
+       emit(doc.nama, doc.nik);
+        }
+    }
+    ````   
     
     ## Konfigurasi Website
     Dukungan bahasa pengembangan menggunakan Java dan JSP sebagai output keluaran halaman. Sebelum memulai anda harus memastikan `apache-tomcat` sudah running. 
