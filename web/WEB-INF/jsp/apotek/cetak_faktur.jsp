@@ -20,7 +20,7 @@
 <div style="margin-top:2%" class="o-flex-grid w-100 pure-u-1-3">
     <div class="o-flex-grid--item">
         <h1> Apotek RSGM UNAIR </h1>
-        <h2> Cetak Resep</h2>
+        <h2> Cetak Faktur</h2>
     <table class="pure-table pure-table-horizontal ">
             <thead>
                 <tr>
@@ -42,7 +42,6 @@
                     <th>No</th>
                     <th>Nama Obat</th>
                     <th>Kuantitas</th>
-                    <th>Stok dibeli</th>
                 </tr>
             </thead>
             <tbody>
@@ -51,19 +50,16 @@
         if(!detailPasien.has("obat"+i)){
             break;
         }
-        if(!detailPasien.has("generate"+i)){
-            break;
-        }
+        if(=(detailPasien.getString("generate"+i).equals("on"))){
+           
+        
     %>
                 <tr>
                     <td><%=(i)%></td>
                     <td><%=(detailPasien.getString("obat"+i))%> </td>
                     <td><%=(detailPasien.getString("jumlahObat"+i))%></td>
-                    <td>
-                       <%=detailPasien.getString("jumlahBeli"+i)%>
-                    </td>
                 </tr>
-                    <%}%>
+                    <%}}%>
             </tbody>
         </table>
 
