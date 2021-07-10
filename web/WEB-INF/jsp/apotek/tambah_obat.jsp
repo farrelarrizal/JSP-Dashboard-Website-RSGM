@@ -13,6 +13,8 @@
     JSONObject detailPasien = TambahObat.searchPasien(id);
     String idTemp[] = detailPasien.getString("_id").split("pasien:");  
     out.print(detailPasien);
+
+    String notif = request.getParameter("notif");
   
       if(action != null && action.equals("addAptk")){
 
@@ -26,11 +28,11 @@
         resp = TambahObat.editObat(fr);
     %>
             <script>
-                window.location.href="?act=tambah-obat&id=<%=resp.getID()%>&resp=<%=resp.getKode()%>"
+                window.location.href="?act=tambah-obat&id=<%=resp.getID()%>&resp=<%=resp.getKode()%>&notif=ok"
             </script>
     <%
     }
-   
+   out.println(action);
 %>
 
 
@@ -38,6 +40,11 @@
     <div class="o-flex-grid--item">
         <h1> Apotek RSGM UNAIR </h1>
         <h2> Tambahkan Obat Pasien </h2>
+
+
+               <%if(notif != null){%>
+                        <p style="background: #28a745; color:white"> Obat berhasil ditambahkan </p>
+                    <%}%>
 
         <table class="pure-table pure-table-horizontal ">
             <thead>

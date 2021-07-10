@@ -106,7 +106,7 @@
             </tbody>
         </table>
                     <div style="margin-top:25px; font-size:1.2em">
-                    <button class="pure-button" type="submit" style="margin-right:5px;">Berikan Resep</button>
+                    <button class="pure-button" type="submit" style="margin-right:5px;">Submit</button>
                     </div>
                                 </div>
                         </fieldset>
