@@ -94,7 +94,7 @@
                     <td><%=(detailPasien.getString("obat"+i))%> </td>
                     <td><%=(detailPasien.getString("jumlahObat"+i))%></td>
                     <td>
-                        <input type="number"  id="jumlahBeli<%=(i)%>" name="jumlahBeli<%=(i)%>" value = "<%=detailPasien.getString("jumlahBeli"+i)%>" />
+                        <input type="number"  id="jumlahBeli<%=(i)%>" name="jumlahBeli<%=(i)%>" value = "<% if(detailPasien.has("jumlahBeli"+i)){out.print(detailPasien.getString("jumlahBeli"+i));}%>" />
                     </td>
                     <td style="text-align:center">
                     <label for="default-remember">
