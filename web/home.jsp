@@ -214,6 +214,8 @@ if(isLogin == null || !isLogin.equals("1")){
 			<jsp:include page="WEB-INF/jsp/kamaroperasi/edit_operasi.jsp"/>
 			<% }else if( act.equals("checkid-kamar-operasi")){ %>
 			<jsp:include page="WEB-INF/jsp/kamaroperasi/checkid_operasi.jsp"/>
+			<% }else if( act.equals("delete-operasi")){ %>
+			<jsp:include page="WEB-INF/jsp/kamaroperasi/delete_operasi.jsp"/>
 			<% } %>
 			</div>
 		</div>

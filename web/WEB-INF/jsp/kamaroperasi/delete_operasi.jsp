@@ -36,9 +36,9 @@
     }
 %>
 
-<h2>Edit Kamar Operasi</h2>
+<h2>Delete Data Kamar Operasi</h2>
 
-<form class="pure-form pure-form-aligned" method="post" action="?act=edit-kamar-operasi&id=<%=(idTemp[1])%>">
+<form class="pure-form pure-form-aligned" method="post" action="?act=delete-operasi&id=<%=(idTemp[1])%>">
     <fieldset>
         <input type="hidden" id="edit" name="edit" value="true">
         <input type="hidden" name="rev" value="<%=cariPasien.getString("_rev")%>" >
@@ -51,20 +51,16 @@
             <input type="text" id="nama" name="nama" autocomplete="off" readonly class="pure-input-1-4" value="<%=(cariPasien.getString("nama"))%>" />
         </div>
         <div class="pure-control-group ">
-            <label for="jk">Jenis Kelamin : </label>
-            <input type="text" id="jk" name="jk" autocomplete="off" readonly class="pure-input-1-4" value="<%=(cariPasien.getString("jk"))%>" />
+            <input type="hidden" id="jk" name="jk" autocomplete="off" class="pure-input-1-4" value="<%=(cariPasien.getString("jk"))%>" />
         </div>
         <div class="pure-control-group ">
-            <label for="nokamar">No Kamar Operasi</label>
-            <input type="text" id="noKamar" name="noKamar" autocomplete="off" placeholder="" class="pure-input-1-4" value="<%=(cariPasien.getString("noKamar"))%>" />
+            <input type="hidden" id="noKamar" name="noKamar" autocomplete="off" placeholder="" class="pure-input-1-4" value="empty" />
         </div>
         <div class="pure-control-group ">
-            <label for="dokter">Dokter Operasi</label>
-            <input type="text" id="dokterOperasi" name="dokterOperasi" autocomplete="off" placeholder="" class="pure-input-1-4" value="<%=(cariPasien.getString("dokterOperasi"))%>" />
+            <input type="hidden" id="dokterOperasi" name="dokterOperasi" autocomplete="off"  placeholder="" class="pure-input-1-4" value="empty" />
         </div>
         <div class="pure-control-group">
-            <label for="tgloperasi">Tanggal Operasi</label>
-            <input type="date" id="tglOperasi" name="tglOperasi"  class="pure-input-1-4" value="<%=(cariPasien.getString("tglOperasi"))%>" required />
+            <input type="hidden" id="tglOperasi" name="tglOperasi" class="pure-input-1-4" value="empty" required />
         </div>
         <button type="submit" style="background: #28a745; color: #fff" class="pure-button">Submit</button>
         <a href="?act=kamar-operasi" style="background:#ffee07; color: rgb(70, 64, 64)" class="pure-button"><b>Kembali</b></a>

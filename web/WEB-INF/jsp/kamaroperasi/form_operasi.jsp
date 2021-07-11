@@ -11,6 +11,8 @@
     Response resp = null;
     String id = request.getParameter("id");
 
+    Paging daftarKamarOp = KamarOperasi.getDaftarKamarOp();
+
 
     JSONObject cariPasien = KamarOperasi.searchPasien(id);
     String idTemp[] = cariPasien.getString("_id").split("pasien:");
@@ -22,7 +24,6 @@
             ao.setIdPasien(request.getParameter("idPasien"));
             ao.setNama(request.getParameter("nama"));
             ao.setJk(request.getParameter("jk"));
-            ao.setUmur(request.getParameter("umur"));
             ao.setRev(request.getParameter("rev"));
             ao.setNoKamar(request.getParameter("noKamar"));
             ao.setDokterOperasi(request.getParameter("dokterOperasi"));
@@ -39,6 +40,7 @@
 %>
 
 <h2>Assign Kamar Operasi</h2>
+
 <form class="pure-form pure-form-aligned" method="post" action="?act=form-kamar-operasi&id=<%=(idTemp[1])%>&assign=OK">
     <fieldset>
         <input type="hidden" id="action" name="action" value="assignOperasi">
@@ -54,14 +56,16 @@
             <label for="jk">Jenis Kelamin : </label>
             <input type="text" id="jk" name="jk" autocomplete="off" readonly class="pure-input-1-4" value="<%=(cariPasien.getString("jk"))%>" />
         </div>
-        <div class="pure-control-group ">
-            <label for="umur">Umur Pasien : </label>
-            <input type="text" id="umur" name="umur" autocomplete="off" readonly class="pure-input-1-4" value="<%=(cariPasien.getString("umur"))%>" />
-        </div>
         <input type="hidden" name="rev" value="<%=cariPasien.getString("_rev")%>" >
         <div class="pure-control-group ">
             <label for="nokamar">No Kamar Operasi</label>
-            <input type="text" id="noKamar" name="noKamar" autocomplete="off" placeholder="" class="pure-input-1-4" />
+            <select id="nokamar" name="noKamar" class="pure-input-1-4" >
+                <option><%=daftarKamarOp.getResultList().get(0).getString("kamar1")%></option>
+                <option><%=daftarKamarOp.getResultList().get(0).getString("kamar2")%></option>
+                <option><%=daftarKamarOp.getResultList().get(0).getString("kamar3")%></option>
+                <option><%=daftarKamarOp.getResultList().get(0).getString("kamar4")%></option>
+                <option><%=daftarKamarOp.getResultList().get(0).getString("kamar5")%></option>
+            </select>
         </div>
         <div class="pure-control-group ">
             <label for="dokter">Dokter Operasi</label>
