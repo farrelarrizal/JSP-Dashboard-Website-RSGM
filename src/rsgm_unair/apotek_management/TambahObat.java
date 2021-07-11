@@ -139,6 +139,7 @@ public class TambahObat {
 
         JSONObject pasien = pasienClient.getDoc(docId);
         pasienClient = null;
+        
 
         if(!pasien.has("_id")){
             return null;

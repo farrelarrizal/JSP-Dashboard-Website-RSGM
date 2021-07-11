@@ -11,6 +11,8 @@
     String id = request.getParameter("id");
 
     JSONObject detailPasien = TambahObat.searchPasien(id);
+
+
     String idTemp[] = detailPasien.getString("_id").split("pasien:");  
     out.print(detailPasien);
 
@@ -83,13 +85,13 @@
                         <input type="hidden"  name="rev" value="<%=detailPasien.getString("_rev")%>">
                         <%-- <input type="hidden"  name="act" value="tambah-obat"> --%>
                 <div class="pure-control-group">
-                    <label for="aligned-name">Daftar Obat:</label>
-                     <input type="text" id="obat" name="obat"  />
+                    <label for="aligned-name">Nama Obat:</label>
+                     <input type="text" id="obat" name="obat" required=""  />
                  
                 </div>
                 <div class="pure-control-group">
                     <label for="aligned-password">Jumlah Obat:</label>
-                    <input type="text" id="jumlahObat" name="jumlahObat"  />
+                    <input type="text" id="jumlahObat" name="jumlahObat" required=""  />
                 </div>
                     <div style="margin-top:25px; font-size:1.2em">
                     <button class="pure-button" type="submit" style="margin-right:5px;">Tambahkan Obat</button>

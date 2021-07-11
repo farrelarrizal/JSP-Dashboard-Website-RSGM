@@ -18,7 +18,7 @@
                 <input type="hidden" name="act" value="tambah-obat" />
                     <div class="pure-control-group">
                         <label style="font-size:1.3em; margin-right:7px" for="aligned-name">ID Pasien :</label>
-                        <input type="text" id="aligned-name" name="id" placeholder="masukkan nama pasien..." />
+                        <input type="text" id="aligned-name" name="id" placeholder="masukkan Id pasien..." required />
                         <span class="pure-form-message-inline"></span>
                     </div>
                     <div style="margin-top:25px; font-size:1.2em">

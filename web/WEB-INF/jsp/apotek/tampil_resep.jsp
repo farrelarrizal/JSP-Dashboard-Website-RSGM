@@ -107,7 +107,7 @@
                     <td style="text-align:center">
                     <label for="default-remember">
                        <%-- <button class="pure-button" type="submit" style="margin-right:5px;">Berikan Resep</button> --%>
-                        <input type="checkbox" id="generate<%=(i)%>" name="generate<%=(i)%>" /> </label>
+                        <input type="checkbox" id="generate<%=(i)%>" name="generate<%=(i)%>"  /> </label>
                     </td>
                 </tr>
                     <%}%>
