@@ -9,7 +9,7 @@
 <%
     String idPasien = request.getParameter("idPasien");
     String tipe = request.getParameter("tipe");
-    
+    String no = request.getParameter("no");
     JSONObject detailPasien = AdmissionManagement.cariPrePasien(idPasien);
     JSONObject detailKamar = InapManagement.cariKamar(tipe);
 
@@ -32,9 +32,14 @@
         fr.setCurrentTotal(keep2);
 
         resp = InapManagement.removePasien(fr);
-    out.print("cuk");
+    
+    %>
+            <script>
+                window.location.href="?act=kamar-inap&del=ok&id=<%=tipe%>&no=<%=no%> "
+            </script>
+    <%
+
     }
-    out.print(tipe);
 %>
 <h2> Konfirmasi Hapus Pasien</h2>
 <div class="o-flex-grid w-100">

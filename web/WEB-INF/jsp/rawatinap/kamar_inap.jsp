@@ -30,18 +30,22 @@
                     int i=1;
                     while(detailKamar.has("kamar"+request.getParameter("no")+i)){
                         String idPasien = detailKamar.getString("kamar"+request.getParameter("no")+i);
+                        if(!idPasien.equals("")){
                         JSONObject detailPasien = AdmissionManagement.cariPrePasien(idPasien);
-
-                        %>
+                %>
                 <tr class="pure-table-odd" >
                     <td ><%=i%></td>
-                    <td><%=detailPasien.getString("nama")%></td>
-                    <td><%=detailPasien.getString("diagnosa")%></td>
+                    <td><%if(detailPasien.has("nama")){out.print(detailPasien.getString("nama"));}%></td>
+                    <td><%if(detailPasien.has("diagnosa")){out.print(detailPasien.getString("diagnosa"));}%></td>
                     <td>
                             <a style="font-size:70% ; color:white ; background-color:#28527a" class=" pure-button" href="?act=detail-inap&no=<%=no%>&id=<%=id%>&idPasien=<%=idPasien%>"><b>Detail</b></a>
                             <a style="font-size:70% ;  background-color:#fdca40" class="pure-button" href="?act=remove-inap&idPasien=<%=idPasien%>&tipe=<%=id%>&no=<%=no%>&urutan=<%=i%>"><b><strong>Hapus</strong></b></a>
                     </td>
                 </tr>
+                <%
+                        }
+
+                        %>
                 <%  
                         i++;
                     }
