@@ -15,8 +15,9 @@
     out.print(detailPasien);
 
     String notif = request.getParameter("notif");
-  
+    String fail = request.getParameter("fail");
       if(action != null && action.equals("addAptk")){
+         
 
             Apotek fr = new Apotek();
             fr.setRev(request.getParameter("rev"));
@@ -26,6 +27,15 @@
             fr.setAptk("true");
         
         resp = TambahObat.editObat(fr);
+         if(detailPasien.has("jumlahObat5")){
+              String maxObat = "yes";
+               %>
+            <script>
+               window.location.href="?act=tambah-obat&id=<%=resp.getID()%>&resp=<%=resp.getKode()%>&fail=ok"
+            </script>
+    <%
+          }
+
     %>
             <script>
                 window.location.href="?act=tambah-obat&id=<%=resp.getID()%>&resp=<%=resp.getKode()%>&notif=ok"
@@ -44,7 +54,12 @@
 
                <%if(notif != null){%>
                         <p style="background: #28a745; color:white"> Obat berhasil ditambahkan </p>
-                    <%}%>
+                    <%}
+                    if(fail != null){%>
+                        <p style="background: #FF0000; color:white"> Hanya dapat memberikan maksimal 5 obat per pasien!</p>
+                    <%}
+                    
+                    %>
 
         <table class="pure-table pure-table-horizontal ">
             <thead>
