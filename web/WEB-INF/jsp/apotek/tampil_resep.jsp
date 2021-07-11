@@ -72,7 +72,7 @@
                         <%-- <input type="hidden" id="id" name="idPasien" value="<%=(idTemp[1])%>"> --%>
                         <input type="hidden"  name="rev" value="<%=detailPasien.getString("_rev")%>">
                                 <div style="margin-top:25px; font-size:1.2em">
-                                 <table class="pure-table pure-table-bordered" style="margin-top : 30px">
+        <table class="pure-table pure-table-bordered" style="margin-top : 30px">
             <thead>
                 <tr>
                     <th>No</th>
@@ -94,7 +94,7 @@
                     <td><%=(detailPasien.getString("obat"+i))%> </td>
                     <td><%=(detailPasien.getString("jumlahObat"+i))%></td>
                     <td>
-                        <input type="number"  id="jumlahBeli<%=(i)%>" name="jumlahBeli<%=(i)%>" value = "<%=detailPasien.getString("jumlahBeli"+i)%>" />
+                        <input type="number"  id="jumlahBeli<%=(i)%>" name="jumlahBeli<%=(i)%>" value = "<% if(detailPasien.has("jumlahBeli"+i)){out.print(detailPasien.getString("jumlahBeli"+i));}%>" />
                     </td>
                     <td style="text-align:center">
                     <label for="default-remember">
@@ -106,10 +106,16 @@
             </tbody>
         </table>
                     <div style="margin-top:25px; font-size:1.2em">
-                    <button class="pure-button" type="submit" style="margin-right:5px;">Berikan Resep</button>
+                    <button class="pure-button" type="submit" style="margin-right:5px;">Submit</button>
                     </div>
                                 </div>
                         </fieldset>
                     </form>
+                     <div style="margin-top:25px; font-size:1.2em">
+                    <a class="pure-button pure-button-primary" href="?act=cetak-faktur&id=<%=(idTemp[1])%>" style="margin-right:5px;" >Cetak Faktur</a>
+                    </div>
+                      <div style="margin-top:25px; font-size:1.2em">
+                    <a class="pure-button pure-button-primary" href="?act=cetak-resep&id=<%=(idTemp[1])%>" style="margin-right:5px;" >Cetak Resep</a>
+                    </div>
 	</div>
 </div>

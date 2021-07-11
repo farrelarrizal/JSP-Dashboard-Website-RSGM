@@ -182,6 +182,8 @@ if(isLogin == null || !isLogin.equals("1")){
 			<jsp:include page="WEB-INF/jsp/apotek/tampil_resep.jsp"/>
 			<% }else if( act.equals("cetak-resep")){ %>
 			<jsp:include page="WEB-INF/jsp/apotek/cetak_resep.jsp"/>
+			<% }else if( act.equals("cetak-faktur")){ %>
+			<jsp:include page="WEB-INF/jsp/apotek/cetak_faktur.jsp"/>
 			<% }else if( act.equals("rawat-inap")){ %>
 			<jsp:include page="WEB-INF/jsp/rawatinap/rawat_inap.jsp"/>
 			<% }else if( act.equals("tipe-inap")){ %>
