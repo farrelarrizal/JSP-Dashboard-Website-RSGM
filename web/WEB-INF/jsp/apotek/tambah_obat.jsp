@@ -88,7 +88,7 @@
                  
                 </div>
                 <div class="pure-control-group">
-                    <label for="aligned-password">Kuantitas:</label>
+                    <label for="aligned-password">Jumlah Obat:</label>
                     <input type="text" id="jumlahObat" name="jumlahObat"  />
                 </div>
                     <div style="margin-top:25px; font-size:1.2em">

@@ -85,12 +85,32 @@ public class TambahObat {
                                                         pasien.put("jumlahBeli5",frp.getJumlahBeli5());
                                                         pasien.put("jumlahBeli6",frp.getJumlahBeli6());
 
-                                                        pasien.put("generate1", frp.getGenerate1());
-                                                        pasien.put("generate2", frp.getGenerate2());
-                                                        pasien.put("generate3", frp.getGenerate3());
-                                                        pasien.put("generate4", frp.getGenerate4());
-                                                        pasien.put("generate5", frp.getGenerate5());
-                                                        pasien.put("generate6", frp.getGenerate6());
+                                                        
+                                                        if(frp.getGenerate1() != null){
+                                                            pasien.put("generate1", frp.getGenerate1());
+                                                            pasien.put("jumlahBeli1","0");
+                                                        }
+                                                        if(frp.getGenerate2() != null){
+                                                            pasien.put("generate2", frp.getGenerate2());
+                                                            pasien.put("jumlahBeli2","0");
+                                                        }
+                                                        if(frp.getGenerate3() != null){
+                                                            pasien.put("generate3", frp.getGenerate3());
+                                                            pasien.put("jumlahBeli3","0");
+                                                        }
+                                                        if(frp.getGenerate4() != null){
+                                                            pasien.put("generate4", frp.getGenerate4());
+                                                            pasien.put("jumlahBeli4","0");
+                                                        }
+                                                        if(frp.getGenerate5() != null){
+                                                            pasien.put("generate5", frp.getGenerate5());
+                                                            pasien.put("jumlahBeli5","0");
+                                                        }
+                                                        if(frp.getGenerate6() != null){
+                                                            pasien.put("generate6", frp.getGenerate6());
+                                                            pasien.put("jumlahBeli5","0");
+                                                        }
+                                                     
 
                                                         pasien.put("rsp",frp.getRsp());
 

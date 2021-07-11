@@ -14,6 +14,7 @@
     JSONObject detailPasien = TambahObat.searchPasien(id);
     String idTemp[] = detailPasien.getString("_id").split("pasien:");  
     out.print(detailPasien);
+    String notif = request.getParameter("notif");
  if(action != null && action.equals("addRsp")){
     
             Apotek fr = new Apotek();
@@ -25,6 +26,8 @@
             fr.setJumlahBeli4(request.getParameter("jumlahBeli4"));
             fr.setJumlahBeli5(request.getParameter("jumlahBeli5"));
             fr.setJumlahBeli6(request.getParameter("jumlahBeli6"));
+            
+            
             fr.setGenerate1(request.getParameter("generate1"));
             fr.setGenerate2(request.getParameter("generate2"));
             fr.setGenerate3(request.getParameter("generate3"));
@@ -37,7 +40,7 @@
   
     %>
             <script>
-                window.location.href="?act=tampil-resep&id=<%=resp.getID()%>&resp=<%=resp.getKode()%>"
+                window.location.href="?act=tampil-resep&id=<%=resp.getID()%>&resp=<%=resp.getKode()%>&notif=ok"
             </script>
     <%
  }
@@ -64,6 +67,11 @@
                         <td> <%=(detailPasien.getString("nama"))%> </td>
                     </tr>
         </table>
+           <%if(notif != null){%>
+                        <p style="background: #28a745; color:white"> Resep dan Faktur berhasil dibuat! </p>
+                    <%}
+                    %>
+
        
             <form class="pure-form pure-form-aligned" style="margin-top:25px" method="post" action="?act=tampil-resep&id=<%=(idTemp[1])%>">
                         <fieldset >
@@ -77,9 +85,9 @@
                 <tr>
                     <th>No</th>
                     <th>Nama Obat</th>
-                    <th>Kuantitas</th>
+                    <th>Jumlah Obat</th>
                     <th>Stok dibeli</th>
-                    <th>Generate resep</th>
+                    <th>Jadikan resep</th>
                 </tr>
             </thead>
             <tbody>
