@@ -26,7 +26,7 @@
         fr.setKamar(request.getParameter("tipe")+request.getParameter("no")+request.getParameter("urutan"));
         
         fr.setRev(detailKamar.getString("_rev"));
-        int keep = detailKamar.getInt(request.getParameter("tipe")+ request.getParameter("urutan")) + 1;
+        int keep = detailKamar.getInt(request.getParameter("tipe")+ request.getParameter("urutan")) -1;
         int keep2 = detailKamar.getInt("bedKosong") +1 ;
         fr.setCurrentRoom(keep);
         fr.setCurrentTotal(keep2);

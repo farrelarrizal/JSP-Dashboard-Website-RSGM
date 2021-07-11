@@ -9,17 +9,20 @@
 <%
         String id = request.getParameter("id");
         String no = request.getParameter("no");
+        String delete = request.getParameter("del");
         JSONObject detailKamar = InapManagement.cariKamar(id);
-        out.println(detailKamar);
+        
 %>
-
 <div style="margin-top:-2%" class="o-flex-grid w-100">
     <div class="o-flex-grid--item">
+<%if(delete != null){%>
+    <p style="background: #28a745; color:white"> Pasien Berhasil dihapus dari kamar ini!</p>
+<%}%>
 <h2> Detail Kamar <%=request.getParameter("id").toUpperCase()+" "+request.getParameter("no")%></h2>
 		<table class="pure-table">
             <thead>
                 <tr>
-                    <th>No</th>
+                    <th>Bed No</th>
                     <th>Nama Pasien</th>
                     <th>Penyakit</th>
                     <th><center>Aksi</center></th>
@@ -34,7 +37,7 @@
                         JSONObject detailPasien = AdmissionManagement.cariPrePasien(idPasien);
                 %>
                 <tr class="pure-table-odd" >
-                    <td ><%=i%></td>
+                    <td ><center><%=i%></center></td>
                     <td><%if(detailPasien.has("nama")){out.print(detailPasien.getString("nama"));}%></td>
                     <td><%if(detailPasien.has("diagnosa")){out.print(detailPasien.getString("diagnosa"));}%></td>
                     <td>

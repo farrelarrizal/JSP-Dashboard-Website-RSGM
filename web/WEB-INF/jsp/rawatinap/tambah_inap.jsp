@@ -47,8 +47,11 @@
         fr.setRevPasien(detailPasien.getString("_rev")) ;
 
         resp = InapManagement.assignRoom(fr);
-        out.println(resp.getPesan());
-        out.println(temp2);
+        %>
+        <script>
+            window.location.href="?act=tipe-inap&id=<%=tipe%>&resp=<%=resp.getKode()%>"
+        </script>
+        <%
     }
 %>
 
