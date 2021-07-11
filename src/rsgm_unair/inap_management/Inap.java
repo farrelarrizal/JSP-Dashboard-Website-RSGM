@@ -13,10 +13,18 @@ import lombok.ToString;
     private int vvip;
     private int vip;
     private int reguler;
+    private int currentRoom, CurrentTotal;
+    private String urutan;
+    private int urutanKamar;
 
     private String tglInap;
     private String dokterPJ;
-    private String kamar;
+    private String kamar, tipe;
+    private String penyakit;
+    private String roomNo;
+    private String revPasien;
+
+
     
     
 }
