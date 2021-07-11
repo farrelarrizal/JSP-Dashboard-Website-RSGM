@@ -70,7 +70,15 @@ Dukungan database dalam project ini menggunakan apache couchdb. Berikut adalah p
         }
     }
     ````
-    6. Kamar Inap : Membuat Design _design/`kamar` dengan index name `all` dan Map function berikut
+    6. Rekam Medis : Membuat Design _design/`rekam` dengan index name `all` dan Map function berikut
+    ``` 
+    function (doc) {
+        if(doc.rekam=="true" && doc._id.startsWith("pasien:")){
+            emit(doc.nama, doc.nik);
+        }
+    }
+    ````    
+    7. Kamar Inap : Membuat Design _design/`kamar` dengan index name `all` dan Map function berikut
     ``` 
     function (doc) {
         if(doc._id.startsWith("kamar:")){
@@ -78,7 +86,7 @@ Dukungan database dalam project ini menggunakan apache couchdb. Berikut adalah p
         }
     }
     ````    
-    7. Operasi : Membuat Design _design/`operasi` dengan index name `all` dan Map function berikut
+    8. Operasi : Membuat Design _design/`operasi` dengan index name `all` dan Map function berikut
     ``` 
     function (doc) {
     if(doc.operasi=="true" && doc._id.startsWith("pasien:")){
