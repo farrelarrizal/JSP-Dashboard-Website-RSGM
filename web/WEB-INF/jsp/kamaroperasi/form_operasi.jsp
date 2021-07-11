@@ -69,7 +69,7 @@
         </div>
         <div class="pure-control-group ">
             <label for="dokter">Dokter Operasi</label>
-            <input type="text" id="dokterOperasi" name="dokterOperasi" autocomplete="off" placeholder="" class="pure-input-1-4" />
+            <input type="text" id="dokterOperasi" name="dokterOperasi" autocomplete="off" placeholder="" class="pure-input-1-4" required/>
         </div>
         <div class="pure-control-group">
             <label for="tgloperasi">Tanggal Operasi</label>
