@@ -50,7 +50,7 @@
                     <td>
                             <a style="font-size:70% ; color:white ; background-color:#28527a" class=" pure-button" href="?act=detail-pre&id=<%=idPasien[1]%>"><b>Detail</b></a>
                             |
-                            <a style="font-size:70% ;  background-color:#fdca40" class="pure-button" href="?act=form-adms&id=<%=idPasien[1]%>"  ><b><strong>Admisi</strong></b></a>
+                            <a <%if(pagePreAdms.getResultList().get(i).has("adms")){out.print("disabled");}%> style="font-size:70% ;  background-color:#fdca40" class="pure-button" href="?act=form-adms&id=<%=idPasien[1]%>"  ><b><strong>Admisi</strong></b></a>
                             |
                             <a style="font-size:70% ; color:white ; background-color:#cf0000" class=" pure-button" href="?act=delete-pasien&id=<%=idPasien[1]%>"><b>Delete</b></a>
                     </td>
