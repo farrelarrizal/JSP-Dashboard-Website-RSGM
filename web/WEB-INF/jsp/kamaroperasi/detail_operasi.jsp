@@ -29,10 +29,6 @@
             <td><%=(cariPasien.getString("nama"))%></td>
         </tr>
         <tr>
-            <th style="text-align:right" > Umur Pasien : </th>
-            <td><%=(cariPasien.getString("umur"))%></td>
-        </tr>
-        <tr>
             <th style="text-align:right" > Jenis Kelamin : </th>
             <td><%=(cariPasien.getString("jk"))%></td>
         </tr>
@@ -52,5 +48,5 @@
 </table>
 <div style="margin-top:20px">
     <a href="?act=kamar-operasi" style="background:#fdca40" class="pure-button"><b>Kembali</b></a>
-    <a href="?act=kamar-operasi" style="background:#df260d; color: rgb(255, 255, 255)" class="pure-button"><b>Delete</b></a>
+    <a href="?act=delete-operasi&id=<%=idTemp[1]%>" style="background:#df260d; color: rgb(255, 255, 255)" class="pure-button"><b>Delete</b></a>
 </div>
