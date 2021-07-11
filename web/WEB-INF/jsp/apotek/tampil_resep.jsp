@@ -13,7 +13,6 @@
     String id = request.getParameter("id");
     JSONObject detailPasien = TambahObat.searchPasien(id);
     String idTemp[] = detailPasien.getString("_id").split("pasien:");  
-    out.print(detailPasien);
     String notif = request.getParameter("notif");
  if(action != null && action.equals("addRsp")){
     

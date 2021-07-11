@@ -44,7 +44,6 @@
             </script>
     <%
     }
-   out.println(action);
 %>
 
 
