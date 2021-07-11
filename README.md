@@ -93,6 +93,14 @@ Dukungan database dalam project ini menggunakan apache couchdb. Berikut adalah p
        emit(doc.nama, doc.nik);
         }
     }
+    ````
+    9. Kamar Operasi : Membuat Design _design/`kamarOp` dengan index name `all` dan Map function berikut
+    ``` 
+    function (doc) {
+    if(doc._id.startsWith("kamarOp:")){
+        emit(doc._id,null);
+        }
+    }
     ````   
     
     ## Konfigurasi Website
