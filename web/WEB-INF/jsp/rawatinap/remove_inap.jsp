@@ -1,28 +1,60 @@
-<%
-    String resp = request.getParameter("resp");
-    String name = request.getParameter("nama-pasien");
-    String id = request.getParameter("id");
-    JSONObject detailPasien = AdmissionManagement.cariPrePasien(id);
-    String idTemp[] = detailPasien.getString("_id").split("pasien:");  
-%>
+<%@ page import="java.util.*" %>
+<%@ page import="rsgm_unair.admission_management.*" %>
+<%@ page import="rsgm_unair.pasien_management.*" %>
+<%@ page import="rsgm_unair.user_management.*" %>
+<%@ page import="rsgm_unair.inap_management.*" %>
+<%@ page import="rsgm_unair.shared.*" %>
+<%@ page import="org.json.*" %>
 
-<h2> Detail Pasien</h2>
+<%
+    String idPasien = request.getParameter("idPasien");
+    String tipe = request.getParameter("tipe");
+    
+    JSONObject detailPasien = AdmissionManagement.cariPrePasien(idPasien);
+    JSONObject detailKamar = InapManagement.cariKamar(tipe);
+
+    String action = request.getParameter("delete");
+    Response resp = null;
+
+
+    if(action != null && action.equals("ok")){
+        Inap fr = new Inap();
+        fr.setIdPasien(request.getParameter("idPasien"));
+        fr.setTipe(request.getParameter("tipe"));
+        fr.setRoomNo(request.getParameter("no"));
+        fr.setUrutan(request.getParameter("urutan"));
+        fr.setKamar(request.getParameter("tipe")+request.getParameter("no")+request.getParameter("urutan"));
+        
+        fr.setRev(detailKamar.getString("_rev"));
+        int keep = detailKamar.getInt(request.getParameter("tipe")+ request.getParameter("urutan")) + 1;
+        int keep2 = detailKamar.getInt("bedKosong") +1 ;
+        fr.setCurrentRoom(keep);
+        fr.setCurrentTotal(keep2);
+
+        resp = InapManagement.removePasien(fr);
+    out.print("cuk");
+    }
+    out.print(tipe);
+%>
+<h2> Konfirmasi Hapus Pasien</h2>
 <div class="o-flex-grid w-100">
     <div class=" o-flex-grid--item">
 <table class="pure-table pure-table-horizontal ">
     <thead>
         <tr>
             <th style="text-align:right" class="pure-u-*" >ID Pasien :</th>
-            <td class="" >BBCSDA</td>
+            <td class="" ><%=idPasien%></td>
         </tr>
     </thead>
     <tbody>
         <tr>
             <th style="text-align:right" > Nama : </th>
-            <td> Budi </td>
+            <td> <%=detailPasien.getString("nama")%> </td>
         </tr>
     </tbody>
 </table>
-<div style="margin-top:20px">
-    <a href="" style="background:#fdca40" class="pure-button"><b>Hapus</b></a>
+
+<a style="font-size:70% ;  background-color:#fdca40" class="pure-button" href="?act=remove-inap&idPasien=<%=idPasien%>&tipe=<%=tipe%>&no=<%=request.getParameter("no")%>&urutan=<%=request.getParameter("urutan")%>&delete=ok&rev=<%=detailPasien.getString("_rev")%>"><b><strong>Hapus</strong></b></a>
+
 </div>
+

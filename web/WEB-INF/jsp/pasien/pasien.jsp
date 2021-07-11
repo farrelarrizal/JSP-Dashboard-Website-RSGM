@@ -70,7 +70,7 @@
             <tr>
                 <th>No</th>
                 <th>Nama Pasien</th>
-                <th>Jenis Kelamin</th>
+                <th>ID Pasien</th>
                 <th>Keluhan</th>
                 <th><center>Aksi</center></th>
             </tr>
@@ -87,7 +87,7 @@
             <tr class="<%if((i+1) %2 == 1){out.print("pure-table-odd");}%>" >
                 <td ><%=(pagePasien.getResultFrom()+i )%></td>
                 <td><%=pagePasien.getResultList().get(i).getString("nama")%></td>
-                <td><%=pagePasien.getResultList().get(i).getString("jk") %></td>
+                <td><%=idPasien[1]%></td>
                 <td><%=pagePasien.getResultList().get(i).getString("keluhan") %></td>
                 
                 <td>
