@@ -13,7 +13,7 @@
         JSONObject detailKamar = InapManagement.cariKamar(id);
         
 %>
-<div style="margin-top:-2%" class="o-flex-grid w-100">
+<div  class="o-flex-grid w-100">
     <div class="o-flex-grid--item">
 <%if(delete != null){%>
     <p style="background: #28a745; color:white"> Pasien Berhasil dihapus dari kamar ini!</p>
