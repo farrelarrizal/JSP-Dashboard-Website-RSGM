@@ -56,7 +56,7 @@
             </tbody>
         </table>
         <div style="margin-top:20px">
-            <a href="?act=tipe-inap&id=1" style="background:#fdca40" class="pure-button"><b>Kembali</b></a>
+            <a href="?act=tipe-inap&id=<%=id%>" style="background:#fdca40" class="pure-button"><b>Kembali</b></a>
         </div>
 	</div>
 </div>
