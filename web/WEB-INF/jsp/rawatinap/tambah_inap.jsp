@@ -68,11 +68,11 @@
                         </div>
                         <div class="pure-control-group ">
                             <label for="tglInap">Tanggal Masuk Kamar Inap</label>
-                            <input type="date" id="tglInap" name="tglInap" autocomplete="off" placeholder="" class="pure-input-1-4" />
+                            <input type="date" id="tglInap" name="tglInap" autocomplete="off" placeholder="" class="pure-input-1-4" required/>
                         </div>
                         <div class="pure-control-group ">
                             <label for="dokterPJ">Dokter Penanggung Jawab</label>
-                            <input type="text" id="dokterPJ" name="dokterPJ" autocomplete="off" placeholder="" class="pure-input-1-4" />
+                            <input type="text" id="dokterPJ" name="dokterPJ" autocomplete="off" placeholder="" class="pure-input-1-4" required/>
                         </div>
                         <div class="pure-control-group">
                             <label for="jKamar">Jenis Kamar</label>
