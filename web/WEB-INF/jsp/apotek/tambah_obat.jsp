@@ -14,7 +14,7 @@
 
 
     String idTemp[] = detailPasien.getString("_id").split("pasien:");  
-    out.print(detailPasien);
+
 
     String notif = request.getParameter("notif");
     String fail = request.getParameter("fail");
