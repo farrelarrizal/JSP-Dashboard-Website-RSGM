@@ -10,7 +10,7 @@
     String name = request.getParameter("nama-pasien");
     String id = request.getParameter("id");
     JSONObject detailPasien = AdmissionManagement.cariPrePasien(id); 
-    // String idTemp[] = detailPasien.getString("_id").split("pasien:");
+    String idTemp[] = detailPasien.getString("_id").split("pasien:");
     out.println(detailPasien);
 %>
 <div style="margin-top:2%" class="o-flex-grid w-100 pure-u-1-3">
@@ -32,7 +32,7 @@
                 <tr>
                     <th> Tanggal Kedatangan : </th>
                     <td> <%=(detailPasien.getString("tglDatang"))%> </td>
-                </tr>cd
+                </tr>
                 <tr>
                     <th> Tanggal Lahir : </th>
                     <td> <%=(detailPasien.getString("tglLahir"))%> </td>
@@ -46,20 +46,16 @@
                     <td> <%=(detailPasien.getString("diagnosa"))%> </td>
                 </tr>
                 <tr>
-                    <th> Riwayat Penanganan : </th>
-                    <td> <%=(detailPasien.getString("penanganan"))%> </td>
-                </tr>
-                <tr>
                     <th> Status Asuransi : </th>
-                    <td> <%=(detailPasien.getString("asuransi"))%> </td>
+                    <td> <%=(detailPasien.getString("pembayaran"))%> </td>
                 </tr>  
             </tbody>
         </table>
 
         <div style="margin-top:10px; font-size:1em">
-                    <a class="pure-button pure-button-primary" href="?act=default" style="margin-right:4px;" >Kembali</a>
-                    <a style="color:rgb(0, 0, 0) ; background-color:#fffb0a" class="pure-button pure-button-primary" href="?act=edit-rekammedis" style="margin-right:9px;" >Edit</a>
-                    <a style="color:rgb(255, 255, 255) ; background-color:#ff0a0a" class="pure-button pure-button-primary" href="?delete-rekammedis" style="margin-right:5px;" >Delete</a>
+                    <a class="pure-button pure-button-primary" href="?act=rekam-medis" style="margin-right:4px;" >Kembali</a>
+                    <a style="color:rgb(0, 0, 0) ; background-color:#fffb0a" class="pure-button pure-button-primary" href="?act=edit-rekammedis&id=<%= idTemp[1] %>" style="margin-right:9px;" >Edit</a>
+                    <a style="color:rgb(255, 255, 255) ; background-color:#ff0a0a" class="pure-button pure-button-primary" href="?act=delete-pasien&id=<%= idTemp[1] %>" style="margin-right:5px;" >Delete</a>
                     </div>
 
 	</div>
