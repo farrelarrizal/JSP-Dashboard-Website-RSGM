@@ -13,7 +13,7 @@
     String id = tipe+no;
     Response resp = null;
     JSONObject detailKamar = InapManagement.cariKamar(tipe);
-    out.print(detailKamar);
+    //out.print(detailKamar);
         int urutan =1;
         int flag=0;
     

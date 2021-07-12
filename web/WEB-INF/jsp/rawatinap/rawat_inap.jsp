@@ -11,7 +11,6 @@
     
     Paging kamar = InapManagement.getKamar();
     String tipeKamar[] = new String[2];
-    out.print(kamar);
 
 %>
 

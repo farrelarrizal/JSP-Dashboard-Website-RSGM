@@ -10,7 +10,7 @@
     JSONObject detailKamar = InapManagement.cariKamar(id);
     String idTemp[] = detailKamar.getString("_id").split("kamar:");
     String resp1 = request.getParameter("resp");
-    out.print(detailKamar);
+    //out.print(detailKamar);
     
     
     
