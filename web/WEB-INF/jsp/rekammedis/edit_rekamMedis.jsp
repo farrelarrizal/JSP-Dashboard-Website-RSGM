@@ -14,41 +14,38 @@
 
 
 %>
-
+<form class="pure-form pure-form-aligned" method="post" >
+    <fieldset>
 <div class="pure-g">
-	<div class="pure-u-24-24" align="center">
+	<div style="margin-top:2%" class="o-flex-grid w-100 pure-u-1-3">
+        <div class="o-flex-grid--item">
         <h2>Edit Rekam Medis</h2>
-
-    <div class="pure-u-24-24"align="center"></div>
-
-<div class="pure-g">
-    <div class="pure-u-21-24" align="center">
         <fieldset>
             <div class="pure-control-group">
-                <label for="aligned-name">Nama</label>
-                <input type="text" name="name" id="aligned-name" placeholder="Nama Lengkap" value="<%=lp.getString("nama")%>"/>
+                <label for="idPasien">ID Pasien : </label>
+                <input type="text" disabled autocomplete="off" id="idPasien" name="idPasien"   value="AES75GSE"/>
             </div>
+            <div class="pure-control-group">
+                <label for="aligned-name">Tanggal Datang</label>
+                <input type="text" name="datang" id="aligned-datang" placeholder="Tanggal Datang" value=""/>
+            </div>
+		
             <div class="pure-control-group">
                 <label for="aligned-name">Tanggal Lahir</label>
-                <input type="text" name="umur" id="aligned-umur" placeholder="Umur" value="<%=lp.getString("tglLahir")%>"/>
+                <input type="text" name="lahir" id="aligned-lahir" placeholder="Tanggal Lahir" value=""/>
             </div>
-			<%-- <div class="pure-control-group">
-                <label for="aligned-name">BeratBadan</label>
-                <input type="text" name="beratbadan" id="aligned-beratbadan" placeholder="Berat Badan" value="<%=lp.getString("beratbadan")%>"/>
-            </div> --%>
 			<div class="pure-control-group">
-                <label for="aligned-name">Keluhan</label>
-                <input type="text" name="keluhan" id="aligned-keluhan" placeholder="Keluhan" value="<%=lp.getString("diagnosa")%>"/>
+                <label for="aligned-name">Jenis Kelamin</label>
+                <input type="text" name="jk" id="aligned-jk" placeholder="Jenis Kelamin" value=""/>
             </div>
             <div class="pure-control-group">
-                <label for="aligned-name">Alamat</label>
-                <input type="text" name="alamat" id="aligned-alamat" placeholder="Alamat" value="<%=lp.getString("alamat")%>"/>
+                <label for="aligned-name">Diagnosa</label>
+                <input type="text" name="diagnosa" id="aligned-diagnosa" placeholder="Diagnosa" value=""/>
             </div>
-			<%-- <div class="pure-control-group">
-                <label for="aligned-name">Ttl</label>
-                <input type="text" name="ttl" id="aligned-ttl" placeholder="Tempat Tanggal Lahir" value="<%=lp.getString("ttl")%>"/>
-            </div> --%>
-            
+            <div class="pure-control-group">
+                <label for="aligned-name">Asuransi</label>
+                <input type="text" name="asuransi" id="aligned-asuransi" placeholder="Asuransi" value=""/>
+            </div>
             <div class="pure-controls">		
                 <input type="submit" class="pure-button pure-button-primary" value="Simpan">
                 <button href="?act=pasien" class="button-success pure-button">Kembali</button>
@@ -57,3 +54,6 @@
     </div>
 </div>
 </div>
+</fieldset>
+</form>
+
