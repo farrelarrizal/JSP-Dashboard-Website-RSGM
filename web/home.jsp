@@ -6,8 +6,8 @@ if(act == null || act.trim().equals("")){
 }
 
 
-// String isLogin = (String) session.getAttribute("is_login");
-String isLogin = "1";
+String isLogin = (String) session.getAttribute("is_login");
+
 
 if(isLogin == null || !isLogin.equals("1")){
 	response.sendRedirect("index.jsp");

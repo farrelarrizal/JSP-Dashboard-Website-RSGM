@@ -1,3 +1,3 @@
 <%
-response.sendRedirect("home.jsp");  //kembaliin ke login
+response.sendRedirect("login.jsp");  //kembaliin ke login
 %>
