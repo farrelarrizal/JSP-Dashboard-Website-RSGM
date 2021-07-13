@@ -56,7 +56,7 @@
         </div>
         <div class="pure-control-group ">
             <label for="nokamar">No Kamar Operasi</label>
-            <input type="text" id="noKamar" name="noKamar" autocomplete="off" placeholder="" class="pure-input-1-4" value="<%=(cariPasien.getString("noKamar"))%>" />
+            <input type="text" id="noKamar" name="noKamar" autocomplete="off" placeholder="" class="pure-input-1-4" readonly value="<%=(cariPasien.getString("noKamar"))%>" />
         </div>
         <div class="pure-control-group ">
             <label for="dokter">Dokter Operasi</label>
