@@ -9,14 +9,17 @@
     String resp = request.getParameter("resp");
     String name = request.getParameter("nama-pasien");
     String id = request.getParameter("id");
+    String edit = request.getParameter("edit");
     JSONObject detailPasien = AdmissionManagement.cariPrePasien(id); 
     String idTemp[] = detailPasien.getString("_id").split("pasien:");
-    out.println(detailPasien);
+    
 %>
 <div style="margin-top:2%" class="o-flex-grid w-100 pure-u-1-3">
     <div class="o-flex-grid--item">
         <h1> Detail Rekam Medis </h1>
-
+            <%if(edit != null){%>
+                <p style="background: #28a745; color:white"> Berhasil Di Simpan! </p>
+            <%}%>
         <table class="pure-table pure-table-bordered">
             <thead>
                 <tr>
