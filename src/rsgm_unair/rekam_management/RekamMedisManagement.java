@@ -35,9 +35,6 @@ public class RekamMedisManagement {
             pasien.put("pembayaran",frp.getPembayaran());
             
 
-            
-
-
             pasienClient.setDoc(id, pasien);
 
             message.setKode(Response.OK);

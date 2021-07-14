@@ -58,7 +58,7 @@
         <div style="margin-top:10px; font-size:1em">
                     <a class="pure-button pure-button-primary" href="?act=rekam-medis" style="margin-right:4px;" >Kembali</a>
                     <a style="color:rgb(0, 0, 0) ; background-color:#fffb0a" class="pure-button pure-button-primary" href="?act=edit-rekammedis&id=<%= idTemp[1] %>" style="margin-right:9px;" >Edit</a>
-                    <a style="color:rgb(255, 255, 255) ; background-color:#ff0a0a" class="pure-button pure-button-primary" href="?act=delete-pasien&id=<%= idTemp[1] %>" style="margin-right:5px;" >Delete</a>
+                    <a style="color:rgb(255, 255, 255) ; background-color:#ff0a0a" class="pure-button pure-button-primary" href="?act=delete-pasien&id=<%= idTemp[1] %>" style="margin-right:5px;" >Hapus</a>
                     </div>
 
 	</div>
